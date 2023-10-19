@@ -33,3 +33,9 @@ appsettings.Local.json
 
 .vsconfig
 IISExpress/config/applicationhost.config
+
+# Excluir el archivo web.config
+Web.config
+
+# Excluir la carpeta Models
+Models/

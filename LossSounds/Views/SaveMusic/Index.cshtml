@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Cargar Archivo de Música</h2>
+
+@using (Html.BeginForm("ObtenerMetadatosCancion", "SaveMusic", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        <label for="archivo">Selecciona un archivo de música:</label>
+        <input type="text" name="archivo" id="archivo" accept=".flac" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Cargar y Obtener Metadatos</button>
+}

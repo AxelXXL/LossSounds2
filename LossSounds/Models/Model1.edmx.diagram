@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2f1ec1c52f6b47dcb4be7dfec516a4c1" Name="Diagram1">
+        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_Album" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_Artista" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_Cancion" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_Comentarios" Width="1.5" PointX="7.5" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_DisLikeMusic" Width="1.5" PointX="7.5" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_Playlist" Width="1.5" PointX="10.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_RolesPrivacidad" Width="1.5" PointX="8.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_Seguidos" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_Usuario" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <AssociationConnector Association="BD_LOSS_SOUNDSModel.FK_Album_to_Artista" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_LOSS_SOUNDSModel.FK_Cancion_to_Album" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_LOSS_SOUNDSModel.FK_Cancion_to_Artista" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_LOSS_SOUNDSModel.FK_SEGUIDAS_TO_ARTISTA" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_LOSS_SOUNDSModel.FK_Comentarios_to_Cancion" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_LOSS_SOUNDSModel.FK_DISLIKES_TO_CANCION" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_LOSS_SOUNDSModel.FK_PlayList_to_Cancion" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_LOSS_SOUNDSModel.FK_Comentarios_to_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_LOSS_SOUNDSModel.FK_DISLIKES_TO_USERS" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_LOSS_SOUNDSModel.FK_PlayList_to_RolesPrivacidad" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_LOSS_SOUNDSModel.FK_PlayList_to_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_LOSS_SOUNDSModel.FK_SEGUIDOS_TO_USERS" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

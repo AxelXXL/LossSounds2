@@ -36,6 +36,11 @@ namespace LossSounds.Controllers
                         int numeroCancion = (int)archivoAudio.Tag.Track;
                         int duracionSegundos = (int)archivoAudio.Properties.Duration.TotalSeconds;
                         string tituloCancion = archivoAudio.Tag.Title;
+                        //Imagen
+                        var caratula = archivoAudio.Tag.Pictures[0];
+                        string base64Image = Convert.ToBase64String(caratula.Data.Data);
+                        byte[] base64ImageBytes = Convert.FromBase64String(base64Image);
+
 
                         // Buscar si el artista ya existe en la bd
                         var artistaID = (from a in db.tb_Artista
@@ -76,6 +81,7 @@ namespace LossSounds.Controllers
                                 Genero = genero,
                                 Año_Album = añoAlbum,
                                 ID_ARTISTA = artistaID, // Asignar el ID del artista
+                                Caratula_Album = base64ImageBytes,
                             };
                             db.tb_Album.Add(album);
                             db.SaveChanges(); // Guardar el álbum para obtener su ID
@@ -91,6 +97,7 @@ namespace LossSounds.Controllers
                             ID_ARTISTA = artistaID,
                             ID_ALBUM = albumID,
                             Ruta_Audio = archivo,
+                            Caratula_Cancion = base64ImageBytes,
                         };
                         db.tb_Cancion.Add(cancion);
                         db.SaveChanges();

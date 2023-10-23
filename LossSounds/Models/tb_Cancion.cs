@@ -28,6 +28,7 @@ namespace LossSounds.Models
         public Nullable<decimal> Numero_Cancion { get; set; }
         public string Ruta_Audio { get; set; }
         public int Duracion_Cancion { get; set; }
+        public byte[] Caratula_Cancion { get; set; }
     
         public virtual tb_Album tb_Album { get; set; }
         public virtual tb_Artista tb_Artista { get; set; }

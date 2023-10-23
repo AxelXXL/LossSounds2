@@ -24,6 +24,7 @@ namespace LossSounds.Models
         public string Nombre_album { get; set; }
         public string Genero { get; set; }
         public Nullable<int> Año_Album { get; set; }
+        public byte[] Caratula_Album { get; set; }
     
         public virtual tb_Artista tb_Artista { get; set; }
         public virtual ICollection<tb_Cancion> tb_Cancion { get; set; }

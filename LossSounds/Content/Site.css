@@ -120,22 +120,27 @@ i img {
     width: 70vw;
 }
 
-    .general__bienvenida__busqueda form {
+.general__bienvenida__busqueda form {
         padding: 50px 50px 50px 200px;
-    }
+}
 
-    .general__bienvenida__busqueda input {
+.general__bienvenida__busqueda input {
         height: 30px;
         width: 440px;
         border-radius: 10px;
-    }
+}
 
-    .general__bienvenida__busqueda button {
+.general__bienvenida__busqueda button {
         height: 30px;
         width: 30px;
         border-radius: 50px;
         background-color: white;
-    }
+}
+.general__bienvenida__logo img{
+    height: 100px;
+    padding: 5px;
+
+}
 
 .general__contenido {
     background-color: rgb(29, 28, 28);

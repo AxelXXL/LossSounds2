@@ -17,10 +17,10 @@ body {
 }
 
 .menu {
+    margin: auto;
     height: 89.5vh;
     width: 20vw;
     background-color: black;
-    margin: 0px;
 }
 
 .menu__usuario {
@@ -54,7 +54,7 @@ body {
         }
 /*--------*/
 .menu__biblioteca {
-    height: 65.2vh;
+    height: 61.2vh;
     background: linear-gradient(to top, rgb(140, 82, 255), rgb(0, 0, 0));
 }
 
@@ -154,6 +154,7 @@ i img {
 .general__contenido__novedades {
     background-color: rgb(29, 28, 28);
     height: 300px;
+    margin-top: 5%;
 }
 
 .general__contenido__novedades__cuadro {
@@ -203,6 +204,8 @@ i img {
     box-shadow: 2px 2px 8px 4px #d3d3d3d1;
     border-radius: 15px;
     font-family: sans-serif;
+    margin-left: 2%;
+    margin-top: 2%;
 }
 
 .titulo {

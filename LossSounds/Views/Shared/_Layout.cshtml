@@ -9,22 +9,65 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-        <div class="container">
-            @Html.ActionLink("Nombre de la aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Alternar navegación" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                </ul>
+    <div class="container">
+        <div class="menu">
+            <h1 class="menu__usuario"><a>Usuario <img src="../Content/Images/usuario.png"></a></h1>
+            <h1 class="menu__inicio"><a>Inicio <img src="../Content/Images/inicio.png"></a></h1>
+            <div class="menu__biblioteca">
+                <h1 class="menu__biblioteca__letrero"><a>Biblioteca<img src="../Content/Images/libro.png"></a></h1>
+                <div class="biblioteca__album">
+                    <img src="../Content/Images/inicio.png"><b>Album1</b>
+                </div><br>
+                <div class="biblioteca__album">
+                    <img src="../Content/Images/inicio.png"><b>Album2</b>
+                </div><br>
+                <div class="biblioteca__album">
+                    <img src="../Content/Images/inicio.png"><b>Album3</b>
+                </div><br>
+                <div class="biblioteca__album">
+                    <img src="../Content/Images/inicio.png"><b>Album4</b>
+                </div><br>
+                <div class="biblioteca__album">
+                    <img src="../Content/Images/inicio.png"><b>Album5</b>
+                </div><br>
             </div>
         </div>
-    </nav>
+        <div class="general">
+            <div class="general__bienvenida">
+                <div class="hora">
+                    <h1 class="general__bienvenida__bn">Buenas Noches</h1><br><br>
+                    <h3 class="general__bienvenida__hora">9:41pm</h3>
+                </div>
+                <div class="general__bienvenida__busqueda">
+                    <form action="#">
+                        <input type="text"
+                               placeholder=" Descubre nuevas canciones"
+                               name="search">
+                        <button>
+                            <i class="general__bienvenida__bb"><img src="../images/Lupa.png"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="general__contenido">
+                <div class="general__contenido__novedades">
+                    <div class="general__contenido__novedades__cuadro">
+                        <h1 class="general__contenido__novedades__cuadro__letrero">Novedades</h1>
+                    </div>
+                </div>
+
+                <div class="general__contenido__recomendaciones">
+                    <div class="general__contenido__recomendaciones__cuadro">
+                        <h1 class="general__contenido__recomendaciones__cuadro__letrero">Recomendado para ti</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="reproduccion">
+
+    </div>
     <div class="container body-content">
         @RenderBody()
         <hr />

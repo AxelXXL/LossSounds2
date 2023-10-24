@@ -1,20 +1,187 @@
-﻿/* Set padding to keep content from hitting the edges */
-.body-content {
-    margin-top: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
+﻿* {
+    padding: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+    color: white;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+body {
+    background-color: rgb(0, 0, 0);
+    margin: auto;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.container {
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+}
+
+.menu {
+    height: 89.5vh;
+    width: 20vw;
+    background-color: black;
+    margin: 0px;
+}
+
+.menu__usuario {
+    font-size: 1em;
+    padding: 20px
+}
+
+    .menu__usuario img {
+        height: 3em;
+        padding: 10px;
+    }
+
+        .menu__usuario img:hover {
+            height: 3.5em;
+            background-color: rgb(255, 0, 0);
+        }
+/*---------*/
+.menu__inicio {
+    font-size: 1em;
+    padding: 20px
+}
+
+    .menu__inicio img {
+        height: 3em;
+        padding: 10px;
+    }
+
+        .menu__inicio img:hover {
+            height: 3.5em;
+            background-color: rgb(255, 0, 0);
+        }
+/*--------*/
+.menu__biblioteca {
+    height: 65.2vh;
+    background: linear-gradient(to top, rgb(140, 82, 255), rgb(0, 0, 0));
+}
+
+.menu__biblioteca__letrero {
+    font-size: 1em;
+    padding: 20px
+}
+
+    .menu__biblioteca__letrero img {
+        height: 3em;
+        padding: 10px;
+    }
+
+.biblioteca__album {
+    background-color: rgb(0, 0, 0);
+    margin: 5px 10px 5px 10px;
+    width: 350px;
+    border-radius: 30px;
+}
+
+    .biblioteca__album img {
+        height: 3em;
+        padding: 5px;
+    }
+
+.nombreA {
+    height: 10px;
+    padding: 5px;
+}
+/*--------------------------------*/
+
+.general {
+    background-color: rgb(0, 0, 0);
+    height: 89.5vh;
+    margin: 0px;
+    padding: 0px;
+}
+
+.general__bienvenida {
+    background-color: black;
+    margin-bottom: 0px;
+    height: 14.5vh;
+    width: 80vw;
+    display: flex;
+}
+
+i img {
+    height: 20px;
+}
+
+.hora {
+    width: 600px;
+    background-color: rgb(0, 0, 0);
+    padding: 1%;
+}
+
+.general__bienvenida__bn {
+    font-size: 50px;
+}
+
+.general__bienvenida__busqueda {
+    background-color: rgb(0, 0, 0);
+    width: 70vw;
+}
+
+    .general__bienvenida__busqueda form {
+        padding: 50px 50px 50px 200px;
+    }
+
+    .general__bienvenida__busqueda input {
+        height: 30px;
+        width: 440px;
+        border-radius: 10px;
+    }
+
+    .general__bienvenida__busqueda button {
+        height: 30px;
+        width: 30px;
+        border-radius: 50px;
+        background-color: white;
+    }
+
+.general__contenido {
+    background-color: rgb(29, 28, 28);
+    margin-top: 5px;
+    height: 74.1vh;
+    width: 80vw;
+    display: inline-block;
+    border-color: rgb(0, 0, 0);
+}
+
+.general__contenido__novedades {
+    background-color: rgb(29, 28, 28);
+    height: 300px;
+}
+
+.general__contenido__novedades__cuadro {
+    background-color: rgb(0, 0, 0);
+    height: 50px;
+    width: 200px;
+    margin-left: 5%;
+    margin-top: 1%;
+    text-align: center;
+    padding-top: 10px;
+    border-radius: 20px;
+}
+
+.general__contenido__recomendaciones__cuadro {
+    background-color: rgb(0, 0, 0);
+    height: 50px;
+    width: 350px;
+    margin-left: 5%;
+    margin-top: 1%;
+    text-align: center;
+    padding-top: 10px;
+    border-radius: 20px;
+}
+
+
+
+/*----------------------------------*/
+
+.reproduccion {
+    margin-top: 5px;
+    background-color: black;
+    height: 9vh;
+    border: 2px;
+    border-style: solid;
+    border-color: cadetblue;
 }

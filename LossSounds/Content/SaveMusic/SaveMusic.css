@@ -1,0 +1,23 @@
+﻿.archivo {
+    border: medium double #369;
+    border-radius: 10px; 
+    width: 70%;
+}
+
+.head{
+    margin-left: 2%;
+    margin-top: 7%;
+}
+
+.meta {
+    background-color: #000000;
+    border: medium double #4800ff;
+    border-radius: 10px;
+    width: 180px;
+    height: 30px;
+}
+
+.form-group{
+    margin-left: 2%;
+    margin-top: 2%;
+}

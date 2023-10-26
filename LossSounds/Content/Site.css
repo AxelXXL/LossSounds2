@@ -14,7 +14,9 @@ body {
     display: flex;
     justify-content: center;
     margin: 0px;
+    flex-wrap: wrap;
 }
+
 
 .menu {
     margin: auto;
@@ -99,6 +101,7 @@ body {
     height: 14.5vh;
     width: 80vw;
     display: flex;
+    flex-grow: 1;
 }
 
 i img {
@@ -106,6 +109,7 @@ i img {
 }
 
 .hora {
+    flex-grow: 1;
     width: 600px;
     background-color: rgb(0, 0, 0);
     padding: 1%;
@@ -116,13 +120,17 @@ i img {
 }
 
 .general__bienvenida__busqueda {
+    flex-grow: 1;
+    flex-basis: 200;
     background-color: rgb(0, 0, 0);
     width: 70vw;
 }
 
-.general__bienvenida__busqueda form {
+    .general__bienvenida__busqueda form {
+        flex-grow: 1;
+        flex-basis: 200;
         padding: 50px 50px 50px 200px;
-}
+    }
 
 .general__bienvenida__busqueda input {
         height: 30px;
@@ -136,10 +144,11 @@ i img {
         border-radius: 50px;
         background-color: white;
 }
-.general__bienvenida__logo img{
+.general__bienvenida__logo img {
+    flex-grow: 1;
+    flex-basis: 200;
     height: 100px;
     padding: 5px;
-
 }
 
 .general__contenido {
@@ -183,7 +192,8 @@ i img {
 
 /*----------------------------------*/
 
-.reproduccion {
+.reproduccion footer{
+    width: 100%;
     margin-top: 5px;
     background-color: black;
     height: 9vh;

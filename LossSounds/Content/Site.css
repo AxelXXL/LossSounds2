@@ -14,7 +14,9 @@ body {
     display: flex;
     justify-content: center;
     margin: 0px;
+    flex-wrap: wrap;
 }
+
 
 .menu {
     margin: auto;
@@ -99,6 +101,7 @@ body {
     height: 14.5vh;
     width: 80vw;
     display: flex;
+    flex-grow: 1;
 }
 
 i img {
@@ -106,6 +109,7 @@ i img {
 }
 
 .hora {
+    flex-grow: 1;
     width: 600px;
     background-color: rgb(0, 0, 0);
     padding: 1%;
@@ -116,12 +120,15 @@ i img {
 }
 
 .general__bienvenida__busqueda {
+    flex-grow: 1;
+    flex-basis: 200;
     background-color: rgb(0, 0, 0);
     width: 70vw;
     padding-top: 5%;
     color: black;
 }
 
+<<<<<<< HEAD
 .form button {
     border: none;
     background: none;
@@ -176,7 +183,19 @@ i img {
 /* Hover on Input */
 .form:focus-within {
     border-radius: var(--after-border-radius);
+=======
+<<<<<<< HEAD
+    .general__bienvenida__busqueda form {
+        flex-grow: 1;
+        flex-basis: 200;
+        padding: 50px 50px 50px 200px;
+    }
+=======
+.general__bienvenida__busqueda form {
+    padding: 50px 50px 50px 200px;
+>>>>>>> e302a7aed7ec18925cbee95f20a5c3a35a000beb
 }
+>>>>>>> 10dcb1cb8075f25b1ac18bf46103b8b88f3b2fd8
 
 input:focus {
     outline: none;
@@ -204,10 +223,24 @@ input:not(:placeholder-shown) ~ .reset {
     margin-top: 3px;
 }
 
+<<<<<<< HEAD
 .general__bienvenida__logo img{
     height: 100px;
     padding: 20;
     margin: 50px;
+=======
+.general__bienvenida__busqueda button {
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+    background-color: white;
+}
+.general__bienvenida__logo img {
+    flex-grow: 1;
+    flex-basis: 200;
+    height: 100px;
+    padding: 5px;
+>>>>>>> e302a7aed7ec18925cbee95f20a5c3a35a000beb
 }
 
 .general__contenido {
@@ -251,7 +284,8 @@ input:not(:placeholder-shown) ~ .reset {
 
 /*----------------------------------*/
 
-.reproduccion {
+.reproduccion footer{
+    width: 100%;
     margin-top: 5px;
     background-color: black;
     height:9vh;

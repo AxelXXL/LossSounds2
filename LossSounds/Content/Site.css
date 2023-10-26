@@ -30,30 +30,30 @@ body {
     padding: 20px
 }
 
-    .menu__usuario img {
-        height: 3em;
-        padding: 10px;
-    }
+.menu__usuario img {
+    height: 3em;
+    padding: 10px;
+}
 
-        .menu__usuario img:hover {
-            height: 3.5em;
-            background-color: rgb(255, 0, 0);
-        }
+.menu__usuario img:hover {
+    height: 3.5em;
+    background-color: rgb(255, 0, 0);
+}
 /*---------*/
 .menu__inicio {
     font-size: 1em;
     padding: 20px
 }
 
-    .menu__inicio img {
-        height: 3em;
-        padding: 10px;
-    }
+.menu__inicio img {
+    height: 3em;
+    padding: 10px;
+}
 
-        .menu__inicio img:hover {
-            height: 3.5em;
-            background-color: rgb(255, 0, 0);
-        }
+.menu__inicio img:hover {
+    height: 3.5em;
+    background-color: rgb(255, 0, 0);
+}
 /*--------*/
 .menu__biblioteca {
     height: 61.2vh;
@@ -65,10 +65,10 @@ body {
     padding: 20px
 }
 
-    .menu__biblioteca__letrero img {
-        height: 3em;
-        padding: 10px;
-    }
+.menu__biblioteca__letrero img {
+    height: 3em;
+    padding: 10px;
+}
 
 .biblioteca__album {
     background-color: rgb(0, 0, 0);
@@ -77,10 +77,10 @@ body {
     border-radius: 30px;
 }
 
-    .biblioteca__album img {
-        height: 3em;
-        padding: 5px;
-    }
+.biblioteca__album img {
+    height: 3em;
+    padding: 5px;
+}
 
 .nombreA {
     height: 10px;
@@ -126,23 +126,29 @@ i img {
     width: 70vw;
 }
 
+<<<<<<< HEAD
     .general__bienvenida__busqueda form {
         flex-grow: 1;
         flex-basis: 200;
         padding: 50px 50px 50px 200px;
     }
+=======
+.general__bienvenida__busqueda form {
+    padding: 50px 50px 50px 200px;
+}
+>>>>>>> 10dcb1cb8075f25b1ac18bf46103b8b88f3b2fd8
 
 .general__bienvenida__busqueda input {
-        height: 30px;
-        width: 440px;
-        border-radius: 10px;
+    height: 30px;
+    width: 440px;
+    border-radius: 10px;
 }
 
 .general__bienvenida__busqueda button {
-        height: 30px;
-        width: 30px;
-        border-radius: 50px;
-        background-color: white;
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+    background-color: white;
 }
 .general__bienvenida__logo img {
     flex-grow: 1;

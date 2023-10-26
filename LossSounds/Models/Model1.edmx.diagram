@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2f1ec1c52f6b47dcb4be7dfec516a4c1" Name="Diagram1">
+      <Diagram DiagramId="cbce61cec99a4fee9b69453e569e35ac" Name="Diagram1">
         <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_Album" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_Artista" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_Cancion" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />

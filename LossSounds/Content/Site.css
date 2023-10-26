@@ -129,6 +129,8 @@ i img {
 }
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 .form button {
     border: none;
     background: none;
@@ -185,17 +187,17 @@ i img {
     border-radius: var(--after-border-radius);
 =======
 <<<<<<< HEAD
+>>>>>>> 407f9b277e5162c7ac388d0b4ea01763c2efab88
     .general__bienvenida__busqueda form {
         flex-grow: 1;
         flex-basis: 200;
         padding: 50px 50px 50px 200px;
     }
-=======
+
 .general__bienvenida__busqueda form {
     padding: 50px 50px 50px 200px;
 >>>>>>> e302a7aed7ec18925cbee95f20a5c3a35a000beb
 }
->>>>>>> 10dcb1cb8075f25b1ac18bf46103b8b88f3b2fd8
 
 input:focus {
     outline: none;

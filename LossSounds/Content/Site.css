@@ -128,9 +128,6 @@ i img {
     color: black;
 }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 .form button {
     border: none;
     background: none;
@@ -185,19 +182,12 @@ i img {
 /* Hover on Input */
 .form:focus-within {
     border-radius: var(--after-border-radius);
-=======
-<<<<<<< HEAD
->>>>>>> 407f9b277e5162c7ac388d0b4ea01763c2efab88
+}
     .general__bienvenida__busqueda form {
         flex-grow: 1;
         flex-basis: 200;
         padding: 50px 50px 50px 200px;
     }
-
-.general__bienvenida__busqueda form {
-    padding: 50px 50px 50px 200px;
->>>>>>> e302a7aed7ec18925cbee95f20a5c3a35a000beb
-}
 
 input:focus {
     outline: none;
@@ -225,12 +215,11 @@ input:not(:placeholder-shown) ~ .reset {
     margin-top: 3px;
 }
 
-<<<<<<< HEAD
-.general__bienvenida__logo img{
+.general__bienvenida__logo img {
     height: 100px;
     padding: 20;
     margin: 50px;
-=======
+}
 .general__bienvenida__busqueda button {
     height: 30px;
     width: 30px;
@@ -242,7 +231,6 @@ input:not(:placeholder-shown) ~ .reset {
     flex-basis: 200;
     height: 100px;
     padding: 5px;
->>>>>>> e302a7aed7ec18925cbee95f20a5c3a35a000beb
 }
 
 .general__contenido {

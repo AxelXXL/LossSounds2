@@ -186,7 +186,6 @@ i img {
     .general__bienvenida__busqueda form {
         flex-grow: 1;
         flex-basis: 200;
-        padding: 50px 50px 50px 200px;
     }
 
 input:focus {

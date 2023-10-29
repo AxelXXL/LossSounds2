@@ -62,7 +62,9 @@
                                 <path d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9" stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round"></path>
                             </svg>
                         </button>
-                        <input class="input" placeholder="Descubre nueva musica" required="" type="text">
+                        <input class="input" id="text-buscar" placeholder="Descubre nueva musica" required="" type="text">
+                        <select class="search-canciones" id="opciones-cancion">
+                        </select>
                         <button class="reset" type="reset">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
@@ -94,5 +96,41 @@
 </body>
 </html>
 <script>
+       function Buscador() {
 
+        // Capturar el campo de entrada
+    var $searchInput = $('#text-buscar');
+    // Obtener el elemento select
+    var $select = $('#opciones-cancion');
+
+    // Evento para detectar cambios en el campo de entrada
+    $searchInput.on('input', function () {
+        var query = $(this).val(); // Obtener el valor ingresado por el usuario
+        // Obtener datos desde el controlador y cargarlos en el select
+        $.ajax({
+            url: '@Url.Action("GetCancionList", "Home")',
+            type: 'GET',
+            dataType: 'json',
+            data: {
+                txt: query  // Pasar el valor ingresado por el usuario como parámetro
+            },
+            success: function (data) {
+                // Limpiar opciones existentes
+                $select.empty();
+
+                // Agregar las nuevas opciones desde los datos recibidos
+                $.each(data, function (index, item) {
+                    $select.append($('<option>', {
+                        value: item.Value,
+                        text: item.Text
+                    }));
+                });
+            },
+            error: function (error) {
+                console.error('Error al obtener datos desde el servidor:', error);
+            }
+        });
+
+        });
+    }
 </script>

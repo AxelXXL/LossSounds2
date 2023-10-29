@@ -158,17 +158,16 @@ namespace LossSounds.Controllers
 
 
         }
-        [HttpGet]
         public JsonResult GetCancionList(string txt)
         {
-            List<SelectListItem> items = db.tb_Cancion
+            var items = db.tb_Cancion
                 .Where(x =>
                 x.Nombre_Cancion.Contains(txt) || x.tb_Album.Nombre_album.Contains(txt) || x.tb_Album.Genero.Contains(txt)
                 || x.tb_Artista.Nombre_Artista.Contains(txt))
-                .Select(x => new SelectListItem()
+                .Select(x => new
                 {
                     Text = x.Nombre_Cancion,
-                    Value = x.ID_CANCION.ToString()
+                    Value = x.ID_CANCION
                 })
                 .ToList();
             return Json(items, JsonRequestBehavior.AllowGet);

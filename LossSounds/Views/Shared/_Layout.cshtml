@@ -1,10 +1,29 @@
 ﻿<!DOCTYPE html>
+@{
+    ViewBag.Title = "Loss Sounds";
+    string saludo;
+    var hora = DateTime.Now.Hour;
+    if (hora < 12 && hora > 6)
+    {
+        saludo = "Buenos días";
+    }
+    else if (hora > 12 && hora < 20)
+    {
+        saludo = "Buenas tardes";
+    }
+    else
+    {
+        saludo = "Buenas noches";
+    }
+}
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -32,7 +51,7 @@
         <div class="general">
             <div class="general__bienvenida">
                 <div class="hora">
-                    <h1 class="general__bienvenida__bn">Buenas Noches</h1>
+                    <h1 class="general__bienvenida__bn">@saludo @Session["Name"]|</h1>
                     <h3 class="general__bienvenida__hora">@DateTime.Now.ToString("h:mm tt")</h3>
                 </div>
 
@@ -44,11 +63,11 @@
                             </svg>
                         </button>
                         <input class="input" placeholder="Descubre nueva musica" required="" type="text">
-                    <button class="reset" type="reset">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                    </button>
+                        <button class="reset" type="reset">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
                     </form>
                 </div>
 
@@ -56,9 +75,9 @@
                     <img src="../Content/Images/Logo.png">
                 </div>
             </div>
-                    @RenderBody()
-            </div>
+            @RenderBody()
         </div>
+    </div>
     <footer>
         <div class="reproduccion">
             <div>

@@ -18,6 +18,7 @@ namespace LossSounds.Models
         {
             this.tb_Comentarios = new HashSet<tb_Comentarios>();
             this.tb_DisLikeMusic = new HashSet<tb_DisLikeMusic>();
+            this.tb_LikeMusic = new HashSet<tb_LikeMusic>();
             this.tb_Playlist = new HashSet<tb_Playlist>();
             this.tb_Seguidos = new HashSet<tb_Seguidos>();
         }
@@ -28,6 +29,7 @@ namespace LossSounds.Models
     
         public virtual ICollection<tb_Comentarios> tb_Comentarios { get; set; }
         public virtual ICollection<tb_DisLikeMusic> tb_DisLikeMusic { get; set; }
+        public virtual ICollection<tb_LikeMusic> tb_LikeMusic { get; set; }
         public virtual ICollection<tb_Playlist> tb_Playlist { get; set; }
         public virtual ICollection<tb_Seguidos> tb_Seguidos { get; set; }
     }

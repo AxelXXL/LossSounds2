@@ -1,0 +1,285 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@Styles.Render("~/Content/css")
+<input id="iduser" value="@Session["IdUser"]" hidden />
+
+<div class="general__contenido__novedades">
+    <div class="general__contenido__novedades__cuadro">
+        <h1 class="general__contenido__novedades__cuadro__letrero">Novedades</h1>
+    </div>
+    <div class="tarjeta" id="cont-novedades">
+
+    </div>
+
+</div>
+
+<br />
+
+<div class="general__contenido__recomendaciones">
+    <div class="general__contenido__recomendaciones__cuadro">
+        <h1 class="general__contenido__recomendaciones__cuadro__letrero">Recomendado para ti</h1>
+    </div>
+    <div class="tarjeta" id="cont-recomendaciones">
+
+    </div>
+
+</div>
+<script>
+    const usuario_id = document.getElementById("iduser").value;
+    $(document).ready(function () {
+
+        //GET NOVEDADES
+           $.ajax({
+                url: '@Url.Action("GetNovedades", "Home")', // Reemplaza con la URL correcta
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                // "data" contendrá los datos en formato JSON
+                console.log(data);
+                    AddNovedades(data);
+           },
+                error: function () {
+                    console.log("error al obtener NOVEDADES");
+                }
+           });
+         //GET RECOMENDACIONES
+           $.ajax({
+                url: '@Url.Action("GetRecomendaciones", "Home")', // Reemplaza con la URL correcta
+                type: 'GET',
+                dataType: 'json',
+                data: {idUser: usuario_id},
+                success: function (data) {
+                // "data" contendrá los datos en formato JSON
+                console.log(data);
+                    AddRecomendaciones(data);
+           },
+                error: function () {
+                    console.log("error al obtener RECOMENDACIONES");
+                }
+           });
+        //GET ME GUSTA
+
+        $.ajax({
+            url: '@Url.Action("GetLikes", "Home")', // Reemplaza con la URL correcta
+            type: 'POST',
+            dataType: 'json',
+            data: { id: usuario_id },
+                success: function (data) {
+                // "data" contendrá los datos en formato JSON
+                console.log(data);
+                    ShowLikes(data);
+           },
+                error: function () {
+                // Manejar errores si es necesario
+                    console.log("sin likes");
+                }
+           });
+        Buscador();
+    });
+
+    function AddNovedades(data) {
+        let TemplateIn = "<div id='cont-canciones-nov' class='cont-canciones-nov'>";
+        let TemplateFin = "</div>";
+        let TextIn = "<p>";
+        let TextFin = "</p>";
+        var Img = "datos_base64_de_la_imagen"; // Reemplaza esto con tus datos.
+        // Obtén el elemento en el que deseas insertar el HTML.
+        var contenedor = document.getElementById("cont-novedades");
+
+
+        data.forEach(function (item, i) {
+               var template =  TemplateIn + "<h1 class='name-cancion-nov'>" + item.NombreCancion + "</h1>" + "<p class='name-artist-nov'>" + item.NombreArtista
+                   + "</h1>" + "<h1 class='name-album-nov'>" +item.NombreAlbum + "</h1>" + "<img id='caratula" + i + "' width='100' height='130' alt='Caratula'/>" +
+                   "<button class='likes' onclick='fnlike(this)' id='like" + i + "'>Like</button>" +
+                   "<button class='dislikes' onclick='fndislike(this)' id='dislike" + i + "'>DisLike</button>" +TemplateFin;
+
+            contenedor.innerHTML += template;
+            let idCarat = "caratula" + i;
+            //ConvertByteToImg(idCarat, item.Caratula);
+
+            var imagen = document.getElementById(idCarat);
+            console.log(item.Caratula);
+            // Convierte el array de bytes a una cadena
+            var binaryString = String.fromCharCode.apply(null,item.Caratula);
+
+            // Convierte la cadena binaria a base64
+            var base64String = btoa(binaryString);
+            //imagen.src = "/Home/GetImagen?dataImg=" + item.Caratula;
+            imagen.src = "data:image/png;base64," + base64String;
+            //add atributo de id cancion al id de like y dislike
+            let plike = document.getElementById("like"+i);
+            plike.setAttribute("cancion-id", item.IdCancion);
+            let pdislike = document.getElementById("dislike" + i);
+            pdislike.setAttribute("cancion-id", item.IdCancion);
+            //$("#like").on("click", fnlike );
+
+
+        });
+    }
+    function AddRecomendaciones(data) {
+        let TemplateIn = "<div id='cont-canciones-reco' class='cont-canciones-reco'>";
+        let TemplateFin = "</div>";
+        let TextIn = "<p>";
+        let TextFin = "</p>";
+        var Img = "datos_base64_de_la_imagen"; // Reemplaza esto con tus datos.
+        // Obtén el elemento en el que deseas insertar el HTML.
+        var contenedor = document.getElementById("cont-recomendaciones");
+
+
+        data.forEach(function (item, i) {
+            var template = TemplateIn + "<h1 class='name-cancion-reco'>" + item.NombreCancion + "</h1>" + "<p class='name-artist-reco'>" + item.NombreArtista
+                + "</h1>" + "<h1 class='name-album-reco'>" + item.NombreAlbum + "</h1>" + "<img id='caratula-reco" + i + "' width='100' height='130' alt='Caratula'/>" +
+                "<button class='likes' onclick='fnlike(this)' id='like-reco" + i + "'>Like</button>" +
+                "<button class='dislikes' onclick='fndislike(this)' id='dislike-reco" + i + "'>DisLike</button>" + TemplateFin;
+
+            contenedor.innerHTML += template;
+            let idCarat = "caratula-reco" + i;
+            //ConvertByteToImg(idCarat, item.Caratula);
+
+            var imagen = document.getElementById(idCarat);
+            console.log(item.Caratula);
+            // Convierte el array de bytes a una cadena
+            var binaryString = String.fromCharCode.apply(null, item.Caratula);
+
+            // Convierte la cadena binaria a base64
+            var base64String = btoa(binaryString);
+            //imagen.src = "/Home/GetImagen?dataImg=" + item.Caratula;
+            imagen.src = "data:image/png;base64," + base64String;
+            //add atributo de id cancion al id de like y dislike
+            let plike = document.getElementById("like-reco" + i);
+            plike.setAttribute("cancion-reco-id", item.IdCancion);
+            let pdislike = document.getElementById("dislike-reco" + i);
+            pdislike.setAttribute("cancion-reco-id", item.IdCancion);
+            //$("#like").on("click", fnlike );
+
+
+        });
+    }
+
+    function ShowLikes(data) {
+        console.log(data);
+
+        let TemplateIn = "<div class='contMeg' >";
+        let TemplateFin = "</div>";
+        let TextIn = "<p>";
+        let TextFin = "</p>";
+        var Img = "datos_base64_de_la_imagen"; // Reemplaza esto con tus datos.
+        // Obtén el elemento en el que deseas insertar el HTML.
+        var contenedor = document.getElementById("listaMG");
+
+
+        data.forEach(function (item, i) {
+            var template = TemplateIn + TextIn + item.NombreCancion + TextFin + "<img id='caratula-like" + i +
+                "' width='100' height='130' alt='Caratula'/>" +
+                + TemplateFin;
+
+
+
+            contenedor.innerHTML += template;
+            let idCarat = "caratula-like" + i;
+            //ConvertByteToImg(idCarat, item.Caratula);
+
+            var imagen = document.getElementById(idCarat);
+            console.log(item.Caratula);
+            // Convierte el array de bytes a una cadena
+            var binaryString = String.fromCharCode.apply(null, item.Caratula);
+
+            // Convierte la cadena binaria a base64
+            var base64String = btoa(binaryString);
+            //imagen.src = "/Home/GetImagen?dataImg=" + item.Caratula;
+            imagen.src = "data:image/png;base64," + base64String;
+            let plike = document.getElementById("like" + i);
+            plike.setAttribute("cancion-id", item.IdCancion);
+            //$("#like").on("click", fnlike );
+
+
+        });
+
+    }
+    function Buscador() {
+
+        // Capturar el campo de entrada
+    var $searchInput = $('#text-buscar');
+    // Obtener el elemento select
+    var $select = $('#opciones-cancion');
+
+    // Evento para detectar cambios en el campo de entrada
+    $searchInput.on('input', function () {
+        var query = $(this).val(); // Obtener el valor ingresado por el usuario
+        // Obtener datos desde el controlador y cargarlos en el select
+        $.ajax({
+            url: '@Url.Action("GetCancionList", "Home")',
+            type: 'GET',
+            dataType: 'json',
+            data: {
+                txt: query  // Pasar el valor ingresado por el usuario como parámetro
+            },
+            success: function (data) {
+                // Limpiar opciones existentes
+                $select.empty();
+
+                // Agregar las nuevas opciones desde los datos recibidos
+                $.each(data, function (index, item) {
+                    $select.append($('<option>', {
+                        value: item.Value,
+                        text: item.Text
+                    }));
+                });
+            },
+            error: function (error) {
+                console.error('Error al obtener datos desde el servidor:', error);
+            }
+        });
+
+        });
+    }
+    function fnlike(elm) {
+       let id = elm.getAttribute("cancion-id");
+        console.log(id);
+        $.ajax({
+            url: '@Url.Action("AddLike", "Home")', // Reemplaza con la URL correcta
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                idUser: usuario_id,
+                idCancion: id
+                  },
+                success: function (data) {
+                // "data" contendrá los datos en formato JSON
+                console.log("add like", data);
+
+           },
+                error: function () {
+                // Manejar errores si es necesario
+                    console.log("error add like");
+                }
+           });
+    }
+    function fndislike(elm) {
+        let id = elm.getAttribute("cancion-id");
+        console.log(id);
+        $.ajax({
+            url: '@Url.Action("AddDislike", "Home")', // Reemplaza con la URL correcta
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                idUser: usuario_id,
+                idCancion: id
+                  },
+                success: function (data) {
+                // "data" contendrá los datos en formato JSON
+                console.log("add dislike", data);
+
+           },
+            error: function (err) {
+                console.log(err);
+                // Manejar errores si es necesario
+                }
+           });
+    }
+
+
+</script>

@@ -11,7 +11,7 @@ namespace LossSounds.Controllers
 {
     public class SaveMusicController : Controller
     {
-        private BD_LOSS_SOUNDSEntities db = new BD_LOSS_SOUNDSEntities();
+        private BD_LOSS_SOUNDSEntities1 db = new BD_LOSS_SOUNDSEntities1();
 
         // GET: SaveMusic
         public ActionResult Index()

@@ -82,7 +82,7 @@
         </aside>
 
         <div class="contenido_general">
-        @RenderBody()
+            @RenderBody()
         </div>
 
 
@@ -97,16 +97,25 @@
                     </div>
                 </div>
                 <div class="controles">
-                    <button id="atras">Atrás</button>
-                    <button id="play">Play</button>
-                    <button id="pausa">Pausa</button>
-                    <button id="siguiente">Siguiente</button>
+                    <div class="btn_atras">
+                        <button id="atras">Atrás</button>
+                    </div>
+                    <div class="btn_play">
+                        <button id="play" class="imgPlay"><img src="~/Content/Images/play.png"></button>
+                    </div>
+                    <div class="btn_pausa">
+                        <button id="pausa">Pausa</button>
+                    </div>
+                    <div class="btn_siguiente">
+                        <button id="siguiente">Siguiente</button>
+                    </div>
                 </div>
                 <div class="barra-reproduccion">
                     <input type="range" id="barra-progreso" min="0" max="100">
                 </div>
             </div>
         </footer>
+
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

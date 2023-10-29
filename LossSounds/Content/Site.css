@@ -61,14 +61,7 @@ i img {
     margin-top: 2%;
 }
 
-.reproductor {
-    position: fixed; /* Fijar la posición del div */
-    bottom: 0; /* Colocar el div en la parte inferior */
-    left: 0; /* Colocar el div en el borde izquierdo */
-    width: 100%; /* Hacer que el div ocupe todo el ancho */
-    background-color: #ccc; /* Color de fondo (puedes cambiarlo) */
-    height: 100px;
-}
+
 
 .contenido_general {
     margin-top: 150px;
@@ -78,6 +71,90 @@ i img {
     bottom: 20%;
 
 }
+
+/* Estilos para el reproductor de música en el footer */
+footer .reproductor {
+    position: relative; /* Fijar la posición del div */
+    bottom: 0; /* Colocar el div en la parte inferior */
+    left: 0; /* Colocar el div en el borde izquierdo */
+    width: 100%; /* Hacer que el div ocupe todo el ancho */
+    background-color: #291E31;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333; /* Cambia el color de fondo a tu elección */
+    padding: 10px;
+}
+
+footer .info {
+    display: flex;
+    align-items: center;
+}
+
+    footer .info .imgPlay {
+        width: 50px;
+        height: 30px;
+        margin-right: 10px;
+        align-items: center;
+        text-align: center;
+    }
+
+footer .cancion-info p {
+  
+    color: #fff; /* Cambia el color del texto a tu elección */
+}
+
+footer .controles {
+    display: flex; /* Para hacer que los botones se vean de forma horizontal */
+    align-items: center; /* Alinea los botones verticalmente en el centro */
+}
+
+    footer .controles button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-left: 5px
+    }
+
+footer .barra-reproduccion {
+    width: 60%;
+    margin-left: 10px; /* Espacio entre los controles y la barra de reproducción */
+}
+
+    footer .barra-reproduccion input[type="range"] {
+        width: 100%;
+        -webkit-appearance: none;
+        appearance: none;
+        height: 3px; /* Cambia el grosor de la barra de reproducción */
+        background: #555; /* Cambia el color de fondo de la barra de reproducción */
+        outline: none;
+    }
+
+        footer .barra-reproduccion input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 10px; /* Cambia el tamaño del control deslizante */
+            height: 10px; /* Cambia el tamaño del control deslizante */
+            background: #fff; /* Cambia el color del control deslizante */
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+/* Estilos para los botones de control (atras, play, pausa, siguiente) */
+footer .controles button#play img {
+    max-width: 20px; /* Ajusta el tamaño del ícono de reproducción */
+}
+
+.btn_play{
+    margin-left: 5px;
+}
+
+img {
+    width: 100px;
+    margin-right: 10px;
+}
+
 /*------------------------------------------------------------------------------------*/
 
 /*--------------------------HomePage------------------------------------------------*/
@@ -168,13 +245,11 @@ i img {
     
 }
 
-.biblioteca__album {
-    
-}
 
 .biblioteca__album img {
-    height: 3em;
-    padding: 5px;
+    width: 30%;
+    height: 50px;
+    margin-left: 2%;
 }
 
 .nombreA {
@@ -185,7 +260,7 @@ i img {
 
 
 
-.general__bienvenida__bn {
+    .general__bienvenida__bn {
     font-size: 40px;
 }
 
@@ -344,36 +419,3 @@ input:not(:placeholder-shown) ~ .reset {
 
 
 
-
-
-.info {
-    display: flex;
-    align-items: center;
-}
-
-img {
-    width: 100px;
-    height: 100px;
-    margin-right: 10px;
-}
-
-.cancion-info {
-    text-align: left;
-}
-
-.controles button {
-    background-color: #fff;
-    color: #333;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
-}
-
-.barra-reproduccion {
-    flex: 1;
-}
-
-#barra-progreso {
-    width: 100%;
-}

@@ -195,11 +195,13 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
-    <Content Include="Content\Images\atras.png" />
+    <Content Include="Content\Images\dislike.png" />
     <Content Include="Content\Images\inicio.png" />
     <Content Include="Content\Images\libro.png" />
     <Content Include="Content\Images\Logo.png" />
     <Content Include="Content\Images\Lupa.png" />
+    <Content Include="Content\Images\pausa.png" />
+    <Content Include="Content\Images\play.png" />
     <Content Include="Content\Images\usuario.png" />
     <Content Include="Content\index.css" />
     <Content Include="Content\SaveMusic\SaveMusic.css" />

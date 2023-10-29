@@ -13,11 +13,13 @@ namespace LossSounds.Controllers
 {
     public class HomeController : Controller
     {
-        private BD_LOSS_SOUNDSEntities1 db = new BD_LOSS_SOUNDSEntities1();
+        private BD_LOSS_SOUNDSEntities db = new BD_LOSS_SOUNDSEntities();
         public ActionResult Index()
         {
+
             return View();
         }
+
         public ActionResult LogPage()
         {
             return View();
@@ -323,7 +325,5 @@ namespace LossSounds.Controllers
 
             return Json("Done Dislike", JsonRequestBehavior.AllowGet);
         }
-
-
     }
 }

@@ -29,26 +29,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="menu">
-            <h1 class="menu__usuario"><a>Usuario <img src="../Content/Images/usuario.png"></a></h1>
-            <h1 class="menu__inicio"><a>Inicio <img src="../Content/Images/inicio.png"></a></h1>
-            <div class="menu__biblioteca">
-                <h1 class="menu__biblioteca__letrero"><a>Biblioteca<img src="../Content/Images/libro.png"></a></h1>
-                <div class="biblioteca__album">
-                    <img src="../Content/Images/inicio.png"><b>Album1</b>
-                </div><br>
-                <div class="biblioteca__album">
-                    <img src="../Content/Images/inicio.png"><b>Album2</b>
-                </div><br>
-                <div class="biblioteca__album">
-                    <img src="../Content/Images/inicio.png"><b>Album3</b>
-                </div><br>
-                <div class="biblioteca__album">
-                    <img src="../Content/Images/inicio.png"><b>Album4</b>
-                </div><br>
-            </div>
-        </div>
-        <div class="general">
+        <header>
             <div class="general__bienvenida">
                 <div class="hora">
                     <h1 class="general__bienvenida__bn">@saludo @Session["Name"]|</h1>
@@ -77,19 +58,56 @@
                     <img src="../Content/Images/Logo.png">
                 </div>
             </div>
-            @RenderBody()
-        </div>
-    </div>
-    <footer>
-        <div class="reproduccion">
-            <div>
-                <button>
-                    <img src="~/Content/Images/atras.png">
-                </button>
+        </header>
+        <aside>
+            <div class="menu">
+                <h1 class="menu__usuario"><a>Usuario <img src="../Content/Images/usuario.png"></a></h1>
+                <h1 class="menu__inicio"><a>Inicio <img src="../Content/Images/inicio.png"></a></h1>
+                <div class="menu__biblioteca">
+                    <h1 class="menu__biblioteca__letrero"><a>Biblioteca<img src="../Content/Images/libro.png"></a></h1>
+                    <div class="biblioteca__album">
+                        <img src="../Content/Images/inicio.png"><b>Album1</b>
+                    </div><br>
+                    <div class="biblioteca__album">
+                        <img src="../Content/Images/inicio.png"><b>Album2</b>
+                    </div><br>
+                    <div class="biblioteca__album">
+                        <img src="../Content/Images/inicio.png"><b>Album3</b>
+                    </div><br>
+                    <div class="biblioteca__album">
+                        <img src="../Content/Images/inicio.png"><b>Album4</b>
+                    </div><br>
+                </div>
             </div>
-        </div>
-    </footer>
+        </aside>
 
+        <div class="contenido_general">
+        @RenderBody()
+        </div>
+
+
+        <footer>
+            <div class="reproductor">
+                <div class="info">
+                    <img src="caratula.jpg" alt="Caratula del artista">
+                    <div class="cancion-info">
+                        <p>Nombre del Artista</p>
+                        <p>Nombre de la Canción</p>
+                        <p>Nombre del Álbum</p>
+                    </div>
+                </div>
+                <div class="controles">
+                    <button id="atras">Atrás</button>
+                    <button id="play">Play</button>
+                    <button id="pausa">Pausa</button>
+                    <button id="siguiente">Siguiente</button>
+                </div>
+                <div class="barra-reproduccion">
+                    <input type="range" id="barra-progreso" min="0" max="100">
+                </div>
+            </div>
+        </footer>
+    </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

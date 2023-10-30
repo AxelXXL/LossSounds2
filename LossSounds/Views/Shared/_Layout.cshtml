@@ -27,7 +27,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
+<body onchange="mostrarCancion()">
     <div class="container">
         <div class="menu">
             <div class="menu__superior">
@@ -119,14 +119,10 @@
 
 
         <footer>
-            <div class="reproductor">
-                <div class="info">
+            <div class="reproductor" id="reproductor">
                     <img src="caratula.jpg" alt="Caratula del artista">
-                    <div class="cancion-info">
-                        <p>Nombre del Artista</p>
-                        <p>Nombre de la Canción</p>
-                        <p>Nombre del Álbum</p>
-                    </div>
+                <div class="info" id="info">
+                    
                 </div>
                 <div class="controles">
                     <div class="btn_atras">
@@ -155,6 +151,58 @@
 </body>
 </html>
 <script>
+
+     $(document).ready(function () {
+        var canciones = []; // Arreglo para almacenar las canciones
+        var currentIndex = 0; // Índice de la canción actual
+
+        function cargarCanciones() {
+            $.ajax({
+                url: '@Url.Action("GetCanciones", "Home")',
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+
+                    mostrarCancion(data);
+                    console.log(data);
+                }
+            });
+        }
+        cargarCanciones();
+
+        function mostrarCancion(data) {
+
+            let TemplateIn = "<div class='info'>";
+            let TemplateFin = "</div>";
+            let currentIndex = 0;
+
+            var contenedor = document.getElementById("info");
+
+                //data.forEach(function (item, i) {
+                //    var template = TemplateIn + "<h4>" + item.NombreCancion + "</h4>" + TemplateFin;
+
+                //    contenedor.innerHTML += template;
+                //    console.log(canciones);
+                //})
+
+            var template = TemplateIn + "<h4>" + data[currentIndex].NombreCancion + "</h4>" + TemplateFin;
+            contenedor.innerHTML += template;
+            
+        }
+
+        $("#siguiente").click(function () {
+            currentIndex = (currentIndex + 1) % canciones.length;
+            mostrarCancion(currentIndex);
+        });
+
+        $("#atras").click(function () {
+            currentIndex = (currentIndex - 1 + canciones.length) % canciones.length;
+            mostrarCancion(currentIndex);
+        });
+    });
+
+
+
        function Buscador() {
 
         // Capturar el campo de entrada

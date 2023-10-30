@@ -4,25 +4,28 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="cbce61cec99a4fee9b69453e569e35ac" Name="Diagram1">
-        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_Album" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_Artista" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_Cancion" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_Comentarios" Width="1.5" PointX="7.5" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_DisLikeMusic" Width="1.5" PointX="7.5" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_Playlist" Width="1.5" PointX="10.5" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_RolesPrivacidad" Width="1.5" PointX="8.25" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_Seguidos" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_Usuario" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+      <Diagram DiagramId="c023af3583104f318d7758218d8d4c2e" Name="Diagram1">
+        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_Album" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_Artista" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_Cancion" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_Comentarios" Width="1.5" PointX="7.5" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_DisLikeMusic" Width="1.5" PointX="7.5" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_LikeMusic" Width="1.5" PointX="7.5" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_Playlist" Width="1.5" PointX="10.5" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_RolesPrivacidad" Width="1.5" PointX="8.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_Seguidos" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_LOSS_SOUNDSModel.tb_Usuario" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
         <AssociationConnector Association="BD_LOSS_SOUNDSModel.FK_Album_to_Artista" ManuallyRouted="false" />
         <AssociationConnector Association="BD_LOSS_SOUNDSModel.FK_Cancion_to_Album" ManuallyRouted="false" />
         <AssociationConnector Association="BD_LOSS_SOUNDSModel.FK_Cancion_to_Artista" ManuallyRouted="false" />
         <AssociationConnector Association="BD_LOSS_SOUNDSModel.FK_SEGUIDAS_TO_ARTISTA" ManuallyRouted="false" />
         <AssociationConnector Association="BD_LOSS_SOUNDSModel.FK_Comentarios_to_Cancion" ManuallyRouted="false" />
         <AssociationConnector Association="BD_LOSS_SOUNDSModel.FK_DISLIKES_TO_CANCION" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_LOSS_SOUNDSModel.FK_LIKE_TO_CANCION" ManuallyRouted="false" />
         <AssociationConnector Association="BD_LOSS_SOUNDSModel.FK_PlayList_to_Cancion" ManuallyRouted="false" />
         <AssociationConnector Association="BD_LOSS_SOUNDSModel.FK_Comentarios_to_Usuario" ManuallyRouted="false" />
         <AssociationConnector Association="BD_LOSS_SOUNDSModel.FK_DISLIKES_TO_USERS" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_LOSS_SOUNDSModel.FK_LIKE_TO_USERS" ManuallyRouted="false" />
         <AssociationConnector Association="BD_LOSS_SOUNDSModel.FK_PlayList_to_RolesPrivacidad" ManuallyRouted="false" />
         <AssociationConnector Association="BD_LOSS_SOUNDSModel.FK_PlayList_to_Usuario" ManuallyRouted="false" />
         <AssociationConnector Association="BD_LOSS_SOUNDSModel.FK_SEGUIDOS_TO_USERS" ManuallyRouted="false" />

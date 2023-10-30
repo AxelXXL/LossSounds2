@@ -24,6 +24,7 @@ namespace LossSounds
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/site.css"));
+
         }
     }
 }

@@ -33,8 +33,8 @@
           <Property Name="Nombre_Cancion" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Numero_Cancion" Type="decimal" Precision="18" Scale="0" />
           <Property Name="Ruta_Audio" Type="varchar" MaxLength="120" Nullable="false" />
-          <Property Name="Caratula_Cancion" Type="varbinary(max)" />
           <Property Name="Duracion_Cancion" Type="int" Nullable="false" />
+          <Property Name="Caratula_Cancion" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="tb_Comentarios">
           <Key>
@@ -49,6 +49,14 @@
             <PropertyRef Name="ID_DISLIKES" />
           </Key>
           <Property Name="ID_DISLIKES" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_USUARIO" Type="int" Nullable="false" />
+          <Property Name="ID_CANCION" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_LikeMusic">
+          <Key>
+            <PropertyRef Name="ID_LIKES" />
+          </Key>
+          <Property Name="ID_LIKES" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_USUARIO" Type="int" Nullable="false" />
           <Property Name="ID_CANCION" Type="int" Nullable="false" />
         </EntityType>
@@ -170,6 +178,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_LIKE_TO_CANCION">
+          <End Role="tb_Cancion" Type="Self.tb_Cancion" Multiplicity="1" />
+          <End Role="tb_LikeMusic" Type="Self.tb_LikeMusic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Cancion">
+              <PropertyRef Name="ID_CANCION" />
+            </Principal>
+            <Dependent Role="tb_LikeMusic">
+              <PropertyRef Name="ID_CANCION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LIKE_TO_USERS">
+          <End Role="tb_Usuario" Type="Self.tb_Usuario" Multiplicity="1" />
+          <End Role="tb_LikeMusic" Type="Self.tb_LikeMusic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Usuario">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="tb_LikeMusic">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_PlayList_to_Cancion">
           <End Role="tb_Cancion" Type="Self.tb_Cancion" Multiplicity="1" />
           <End Role="tb_Playlist" Type="Self.tb_Playlist" Multiplicity="*" />
@@ -236,6 +268,7 @@
           <EntitySet Name="tb_Cancion" EntityType="Self.tb_Cancion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Comentarios" EntityType="Self.tb_Comentarios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_DisLikeMusic" EntityType="Self.tb_DisLikeMusic" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_LikeMusic" EntityType="Self.tb_LikeMusic" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Playlist" EntityType="Self.tb_Playlist" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_RolesPrivacidad" EntityType="Self.tb_RolesPrivacidad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Seguidos" EntityType="Self.tb_Seguidos" Schema="dbo" store:Type="Tables" />
@@ -267,6 +300,14 @@
           <AssociationSet Name="FK_DISLIKES_TO_USERS" Association="Self.FK_DISLIKES_TO_USERS">
             <End Role="tb_Usuario" EntitySet="tb_Usuario" />
             <End Role="tb_DisLikeMusic" EntitySet="tb_DisLikeMusic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LIKE_TO_CANCION" Association="Self.FK_LIKE_TO_CANCION">
+            <End Role="tb_Cancion" EntitySet="tb_Cancion" />
+            <End Role="tb_LikeMusic" EntitySet="tb_LikeMusic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LIKE_TO_USERS" Association="Self.FK_LIKE_TO_USERS">
+            <End Role="tb_Usuario" EntitySet="tb_Usuario" />
+            <End Role="tb_LikeMusic" EntitySet="tb_LikeMusic" />
           </AssociationSet>
           <AssociationSet Name="FK_PlayList_to_Cancion" Association="Self.FK_PlayList_to_Cancion">
             <End Role="tb_Cancion" EntitySet="tb_Cancion" />
@@ -327,12 +368,13 @@
           <Property Name="Nombre_Cancion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Numero_Cancion" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="Ruta_Audio" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Caratula_Cancion" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Duracion_Cancion" Type="Int32" Nullable="false" />
+          <Property Name="Caratula_Cancion" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="tb_Album" Relationship="Self.FK_Cancion_to_Album" FromRole="tb_Cancion" ToRole="tb_Album" />
           <NavigationProperty Name="tb_Artista" Relationship="Self.FK_Cancion_to_Artista" FromRole="tb_Cancion" ToRole="tb_Artista" />
           <NavigationProperty Name="tb_Comentarios" Relationship="Self.FK_Comentarios_to_Cancion" FromRole="tb_Cancion" ToRole="tb_Comentarios" />
           <NavigationProperty Name="tb_DisLikeMusic" Relationship="Self.FK_DISLIKES_TO_CANCION" FromRole="tb_Cancion" ToRole="tb_DisLikeMusic" />
+          <NavigationProperty Name="tb_LikeMusic" Relationship="Self.FK_LIKE_TO_CANCION" FromRole="tb_Cancion" ToRole="tb_LikeMusic" />
           <NavigationProperty Name="tb_Playlist" Relationship="Self.FK_PlayList_to_Cancion" FromRole="tb_Cancion" ToRole="tb_Playlist" />
         </EntityType>
         <EntityType Name="tb_Comentarios">
@@ -354,6 +396,16 @@
           <Property Name="ID_CANCION" Type="Int32" Nullable="false" />
           <NavigationProperty Name="tb_Cancion" Relationship="Self.FK_DISLIKES_TO_CANCION" FromRole="tb_DisLikeMusic" ToRole="tb_Cancion" />
           <NavigationProperty Name="tb_Usuario" Relationship="Self.FK_DISLIKES_TO_USERS" FromRole="tb_DisLikeMusic" ToRole="tb_Usuario" />
+        </EntityType>
+        <EntityType Name="tb_LikeMusic">
+          <Key>
+            <PropertyRef Name="ID_LIKES" />
+          </Key>
+          <Property Name="ID_LIKES" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_USUARIO" Type="Int32" Nullable="false" />
+          <Property Name="ID_CANCION" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tb_Cancion" Relationship="Self.FK_LIKE_TO_CANCION" FromRole="tb_LikeMusic" ToRole="tb_Cancion" />
+          <NavigationProperty Name="tb_Usuario" Relationship="Self.FK_LIKE_TO_USERS" FromRole="tb_LikeMusic" ToRole="tb_Usuario" />
         </EntityType>
         <EntityType Name="tb_Playlist">
           <Key>
@@ -396,6 +448,7 @@
           <Property Name="Contrasena" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tb_Comentarios" Relationship="Self.FK_Comentarios_to_Usuario" FromRole="tb_Usuario" ToRole="tb_Comentarios" />
           <NavigationProperty Name="tb_DisLikeMusic" Relationship="Self.FK_DISLIKES_TO_USERS" FromRole="tb_Usuario" ToRole="tb_DisLikeMusic" />
+          <NavigationProperty Name="tb_LikeMusic" Relationship="Self.FK_LIKE_TO_USERS" FromRole="tb_Usuario" ToRole="tb_LikeMusic" />
           <NavigationProperty Name="tb_Playlist" Relationship="Self.FK_PlayList_to_Usuario" FromRole="tb_Usuario" ToRole="tb_Playlist" />
           <NavigationProperty Name="tb_Seguidos" Relationship="Self.FK_SEGUIDOS_TO_USERS" FromRole="tb_Usuario" ToRole="tb_Seguidos" />
         </EntityType>
@@ -471,6 +524,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_LIKE_TO_CANCION">
+          <End Role="tb_Cancion" Type="Self.tb_Cancion" Multiplicity="1" />
+          <End Role="tb_LikeMusic" Type="Self.tb_LikeMusic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Cancion">
+              <PropertyRef Name="ID_CANCION" />
+            </Principal>
+            <Dependent Role="tb_LikeMusic">
+              <PropertyRef Name="ID_CANCION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_PlayList_to_Cancion">
           <End Role="tb_Cancion" Type="Self.tb_Cancion" Multiplicity="1" />
           <End Role="tb_Playlist" Type="Self.tb_Playlist" Multiplicity="*" />
@@ -503,6 +568,18 @@
               <PropertyRef Name="ID_USUARIO" />
             </Principal>
             <Dependent Role="tb_DisLikeMusic">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LIKE_TO_USERS">
+          <End Role="tb_Usuario" Type="Self.tb_Usuario" Multiplicity="1" />
+          <End Role="tb_LikeMusic" Type="Self.tb_LikeMusic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Usuario">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="tb_LikeMusic">
               <PropertyRef Name="ID_USUARIO" />
             </Dependent>
           </ReferentialConstraint>
@@ -549,6 +626,7 @@
           <EntitySet Name="tb_Cancion" EntityType="Self.tb_Cancion" />
           <EntitySet Name="tb_Comentarios" EntityType="Self.tb_Comentarios" />
           <EntitySet Name="tb_DisLikeMusic" EntityType="Self.tb_DisLikeMusic" />
+          <EntitySet Name="tb_LikeMusic" EntityType="Self.tb_LikeMusic" />
           <EntitySet Name="tb_Playlist" EntityType="Self.tb_Playlist" />
           <EntitySet Name="tb_RolesPrivacidad" EntityType="Self.tb_RolesPrivacidad" />
           <EntitySet Name="tb_Seguidos" EntityType="Self.tb_Seguidos" />
@@ -577,6 +655,10 @@
             <End Role="tb_Cancion" EntitySet="tb_Cancion" />
             <End Role="tb_DisLikeMusic" EntitySet="tb_DisLikeMusic" />
           </AssociationSet>
+          <AssociationSet Name="FK_LIKE_TO_CANCION" Association="Self.FK_LIKE_TO_CANCION">
+            <End Role="tb_Cancion" EntitySet="tb_Cancion" />
+            <End Role="tb_LikeMusic" EntitySet="tb_LikeMusic" />
+          </AssociationSet>
           <AssociationSet Name="FK_PlayList_to_Cancion" Association="Self.FK_PlayList_to_Cancion">
             <End Role="tb_Cancion" EntitySet="tb_Cancion" />
             <End Role="tb_Playlist" EntitySet="tb_Playlist" />
@@ -588,6 +670,10 @@
           <AssociationSet Name="FK_DISLIKES_TO_USERS" Association="Self.FK_DISLIKES_TO_USERS">
             <End Role="tb_Usuario" EntitySet="tb_Usuario" />
             <End Role="tb_DisLikeMusic" EntitySet="tb_DisLikeMusic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LIKE_TO_USERS" Association="Self.FK_LIKE_TO_USERS">
+            <End Role="tb_Usuario" EntitySet="tb_Usuario" />
+            <End Role="tb_LikeMusic" EntitySet="tb_LikeMusic" />
           </AssociationSet>
           <AssociationSet Name="FK_PlayList_to_RolesPrivacidad" Association="Self.FK_PlayList_to_RolesPrivacidad">
             <End Role="tb_RolesPrivacidad" EntitySet="tb_RolesPrivacidad" />
@@ -637,8 +723,8 @@
                 <ScalarProperty Name="Nombre_Cancion" ColumnName="Nombre_Cancion" />
                 <ScalarProperty Name="Numero_Cancion" ColumnName="Numero_Cancion" />
                 <ScalarProperty Name="Ruta_Audio" ColumnName="Ruta_Audio" />
-                <ScalarProperty Name="Caratula_Cancion" ColumnName="Caratula_Cancion" />
                 <ScalarProperty Name="Duracion_Cancion" ColumnName="Duracion_Cancion" />
+                <ScalarProperty Name="Caratula_Cancion" ColumnName="Caratula_Cancion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -655,6 +741,15 @@
             <EntityTypeMapping TypeName="BD_LOSS_SOUNDSModel.tb_DisLikeMusic">
               <MappingFragment StoreEntitySet="tb_DisLikeMusic">
                 <ScalarProperty Name="ID_DISLIKES" ColumnName="ID_DISLIKES" />
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+                <ScalarProperty Name="ID_CANCION" ColumnName="ID_CANCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_LikeMusic">
+            <EntityTypeMapping TypeName="BD_LOSS_SOUNDSModel.tb_LikeMusic">
+              <MappingFragment StoreEntitySet="tb_LikeMusic">
+                <ScalarProperty Name="ID_LIKES" ColumnName="ID_LIKES" />
                 <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
                 <ScalarProperty Name="ID_CANCION" ColumnName="ID_CANCION" />
               </MappingFragment>

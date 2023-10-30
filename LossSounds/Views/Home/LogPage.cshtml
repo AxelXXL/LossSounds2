@@ -1,0 +1,23 @@
+﻿@model LossSounds.Models.tb_Usuario
+@{
+
+    ViewBag.Title = "Login";
+    Layout = null;
+
+
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.LabelFor(Model => Model.Nombre_Usuario)
+    @Html.TextBoxFor(Model => Model.Nombre_Usuario)
+
+    @Html.LabelFor(Model => Model.Contrasena)
+    @Html.PasswordFor(Model => Model.Contrasena)
+
+    <input type="submit" value="Iniciar sesión" />
+}

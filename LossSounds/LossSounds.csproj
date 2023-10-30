@@ -161,6 +161,9 @@
     <Compile Include="Models\tb_DisLikeMusic.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tb_LikeMusic.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tb_Playlist.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -192,11 +195,13 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
-    <Content Include="Content\Images\atras.png" />
+    <Content Include="Content\Images\dislike.png" />
     <Content Include="Content\Images\inicio.png" />
     <Content Include="Content\Images\libro.png" />
     <Content Include="Content\Images\Logo.png" />
     <Content Include="Content\Images\Lupa.png" />
+    <Content Include="Content\Images\pausa.png" />
+    <Content Include="Content\Images\play.png" />
     <Content Include="Content\Images\usuario.png" />
     <Content Include="Content\index.css" />
     <Content Include="Content\SaveMusic\SaveMusic.css" />
@@ -250,8 +255,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\SaveMusic\Index.cshtml" />
+    <Content Include="Views\Home\LogPage.cshtml" />
+    <Content Include="Views\Home\HomePage.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

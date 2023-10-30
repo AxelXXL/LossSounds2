@@ -16,7 +16,6 @@ body {
     position: relative;
 }
 
-
 .menu {
     width: 15%;
     height: 680px;
@@ -24,6 +23,20 @@ body {
     position: absolute;
 }
 
+.menu__superior__usuario{
+    display: flex;
+    padding: 30px
+}
+.menu__superior__usuario__text{
+    font-size: 1.5em;
+    padding-top: 20px;
+    display: flex;
+}
+
+.menu__superior__usuario img {
+    height: 3em;
+    padding: 10px;
+}
 .general__bienvenida {
     position: absolute;
     top: 0; /* Lo colocamos en la parte superior */
@@ -205,40 +218,44 @@ img {
 }
 
 /*------------------------------------------------------------------------------------*/
-.menu__usuario {
+.menu__superior__inicio {
+    display: flex;
+    padding: 30px
 }
 
-.menu__usuario img {
-  
+.menu__superior__inicio__text {
+    font-size: 1.5em;
+    display: flex;
+    padding-top: 10px;
 }
 
-.menu__usuario img:hover {
-   
-}
-/*---------*/
-.menu__inicio {
-   
-}
-
-.menu__inicio img {
-   
-}
-
-.menu__inicio img:hover {
-   
+.menu__superior__inicio img {
+    height: 3em;
+    padding-left: 30px;
 }
 /*--------*/
 .menu__biblioteca {
+    height: 64.4vh;
+    background: linear-gradient(to top, rgb(140, 82, 255), rgb(0, 0, 0));
+}
+
+.menu__biblioteca__letrero {
+    font-size: 1em;
+    padding: 20px;
+    display:flex;
+}
+.menu__biblioteca__letrero__inferior {
+    padding-top:50px;
+}
+
+.menu__biblioteca__letrero img {
+    height: 5em;
+    padding: 20px;
 }
 
 .menu__biblioteca__letrero {
    
 }
-
-.menu__biblioteca__letrero img {
-    
-}
-
 
 .biblioteca__album img {
     width: 30%;
@@ -251,14 +268,9 @@ img {
     padding: 5px;
 }
 /*--------------------------------*/
-
-
-
-    .general__bienvenida__bn {
+.general__bienvenida__bn {
     font-size: 40px;
 }
-
-
 
 .form button {
     border: none;
@@ -316,6 +328,10 @@ img {
     border-radius: var(--after-border-radius);
 }
 
+.general__bienvenida__busqueda form {
+    flex-grow: 1;
+    flex-basis: 200;
+}
 
 input:focus {
     outline: none;
@@ -343,8 +359,18 @@ input:not(:placeholder-shown) ~ .reset {
     margin-top: 3px;
 }
 
-
-
+.general__bienvenida__busqueda button {
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+    background-color: white;
+}
+.general__bienvenida__logo img {
+    flex-grow: 1;
+    flex-basis: 200;
+    height: 100px;
+    padding: 5px;
+}
 
 .general__contenido {
     background-color: rgb(29, 28, 28);
@@ -355,6 +381,24 @@ input:not(:placeholder-shown) ~ .reset {
     border-color: rgb(0, 0, 0);
 }
 
+.general__contenido__novedades {
+    height: 275px;
+}
+
+.general__contenido__novedades__cuadro {
+    background-color: rgb(0, 0, 0);
+    height: 50px;
+    width: 200px;
+    margin-left: 5%;
+    margin-top: 1%;
+    text-align: center;
+    padding-top: 10px;
+    border-radius: 20px;
+}
+
+.general__contenido__recomendaciones {
+    height: 275px;
+}
 
 .general__contenido__recomendaciones__cuadro {
     background-color: rgb(0, 0, 0);
@@ -366,21 +410,30 @@ input:not(:placeholder-shown) ~ .reset {
     padding-top: 10px;
     border-radius: 20px;
 }
+.todo {
+    background-color: rgb(29, 28, 28);
+    height:654px;
+    padding:20px
+}
 
 
 
 /*----------------------------------*/
 
-
-
-@charset "utf-8";
-
+.reproduccion{
+    width: 100%;
+    margin-top: 5px;
+    background-color: black;
+    height:9vh;
+    border: 2px;
+    border-style: solid;
+    border-color: wheat;
+}
 
 
 .titulo {
     font-size: 24px;
     padding: 10px 10px 0 10px;
-    ;
 }
 
 .cuerpo {
@@ -394,22 +447,30 @@ input:not(:placeholder-shown) ~ .reset {
     text-align: center;
 }
 
-    .pie a {
-        text-decoration: none;
-        color: white;
-    }
+.pie a {
+    text-decoration: none;
+    color: white;
+}
 
-        .pie a:after {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 1;
-            content: ""
-        }
+.pie a:after {
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   z-index: 1;
+   content: ""
+}
+.pie a:after {
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   z-index: 1;
+   content: ""
+ }
 
 /*-------------------------------------------------------*/
-
 
 

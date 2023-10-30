@@ -25,12 +25,17 @@ body {
     background-color: black;
 }
 
-.menu__usuario {
-    font-size: 1em;
-    padding: 20px
+.menu__superior__usuario{
+    display: flex;
+    padding: 30px
+}
+.menu__superior__usuario__text{
+    font-size: 1.5em;
+    padding-top: 20px;
+    display: flex;
 }
 
-.menu__usuario img {
+.menu__superior__usuario img {
     height: 3em;
     padding: 10px;
 }
@@ -39,15 +44,22 @@ body {
     height: 3.5em;
     background-color: rgb(255, 0, 0);
 }
+
 /*---------*/
-.menu__inicio {
-    font-size: 1em;
-    padding: 20px
+.menu__superior__inicio {
+    display: flex;
+    padding: 30px
 }
 
-.menu__inicio img {
+.menu__superior__inicio__text {
+    font-size: 1.5em;
+    display: flex;
+    padding-top: 10px;
+}
+
+.menu__superior__inicio img {
     height: 3em;
-    padding: 10px;
+    padding-left: 30px;
 }
 
 .menu__inicio img:hover {
@@ -56,18 +68,22 @@ body {
 }
 /*--------*/
 .menu__biblioteca {
-    height: 61.2vh;
+    height: 64.4vh;
     background: linear-gradient(to top, rgb(140, 82, 255), rgb(0, 0, 0));
 }
 
 .menu__biblioteca__letrero {
     font-size: 1em;
-    padding: 20px
+    padding: 20px;
+    display:flex;
+}
+.menu__biblioteca__letrero__inferior {
+    padding-top:50px;
 }
 
 .menu__biblioteca__letrero img {
-    height: 3em;
-    padding: 10px;
+    height: 5em;
+    padding: 20px;
 }
 
 .biblioteca__album {
@@ -183,10 +199,10 @@ i img {
 .form:focus-within {
     border-radius: var(--after-border-radius);
 }
-    .general__bienvenida__busqueda form {
-        flex-grow: 1;
-        flex-basis: 200;
-    }
+.general__bienvenida__busqueda form {
+    flex-grow: 1;
+    flex-basis: 200;
+}
 
 input:focus {
     outline: none;
@@ -214,11 +230,7 @@ input:not(:placeholder-shown) ~ .reset {
     margin-top: 3px;
 }
 
-.general__bienvenida__logo img {
-    height: 100px;
-    padding: 20;
-    margin: 50px;
-}
+
 .general__bienvenida__busqueda button {
     height: 30px;
     width: 30px;
@@ -242,9 +254,7 @@ input:not(:placeholder-shown) ~ .reset {
 }
 
 .general__contenido__novedades {
-    background-color: rgb(29, 28, 28);
-    height: 300px;
-    margin-top: 5%;
+    height: 275px;
 }
 
 .general__contenido__novedades__cuadro {
@@ -258,6 +268,10 @@ input:not(:placeholder-shown) ~ .reset {
     border-radius: 20px;
 }
 
+.general__contenido__recomendaciones {
+    height: 275px;
+}
+
 .general__contenido__recomendaciones__cuadro {
     background-color: rgb(0, 0, 0);
     height: 50px;
@@ -268,19 +282,24 @@ input:not(:placeholder-shown) ~ .reset {
     padding-top: 10px;
     border-radius: 20px;
 }
+.todo {
+    background-color: rgb(29, 28, 28);
+    height:654px;
+    padding:20px
+}
 
 
 
 /*----------------------------------*/
 
-.reproduccion footer{
+.reproduccion{
     width: 100%;
     margin-top: 5px;
     background-color: black;
     height:9vh;
     border: 2px;
     border-style: solid;
-    border-color: cadetblue;
+    border-color: wheat;
 }
 
 
@@ -302,7 +321,6 @@ input:not(:placeholder-shown) ~ .reset {
 .titulo {
     font-size: 24px;
     padding: 10px 10px 0 10px;
-    ;
 }
 
 .cuerpo {
@@ -316,17 +334,17 @@ input:not(:placeholder-shown) ~ .reset {
     text-align: center;
 }
 
-    .pie a {
-        text-decoration: none;
-        color: white;
-    }
+.pie a {
+    text-decoration: none;
+    color: white;
+}
 
-        .pie a:after {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 1;
-            content: ""
-        }
+.pie a:after {
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   z-index: 1;
+   content: ""
+}

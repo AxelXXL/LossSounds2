@@ -196,6 +196,7 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Images\dislike.png" />
+    <Content Include="Content\Images\fondo.jpg" />
     <Content Include="Content\Images\inicio.png" />
     <Content Include="Content\Images\libro.png" />
     <Content Include="Content\Images\Logo.png" />
@@ -205,6 +206,7 @@
     <Content Include="Content\Images\usuario.png" />
     <Content Include="Content\index.css" />
     <Content Include="Content\SaveMusic\SaveMusic.css" />
+    <Content Include="Content\stylesIndexHome.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />

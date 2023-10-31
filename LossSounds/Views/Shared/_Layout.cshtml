@@ -27,40 +27,8 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body onchange="mostrarCancion()">
+<body>
     <div class="container">
-        <div class="menu">
-            <div class="menu__superior">
-                <div class="menu__superior__usuario">
-                    <h1 class="menu__superior__usuario__text"><a>Usuario</a></h1>
-                    <img src="../Content/Images/usuario.png">
-                </div>
-                <div class="menu__superior__inicio">
-                    <h1 class="menu__superior__inicio__text">Inicio</></h1>
-                    <img src="../Content/Images/inicio.png">
-                </div>
-            </div>
-            <div class="menu__biblioteca">
-                <div class="menu__biblioteca__letrero">
-                    <h1 class="menu__biblioteca__letrero__inferior"><a>Biblioteca</a></h1>
-                    <img src="../Content/Images/libro.png">
-                </div>
-                <div class="biblioteca__album">
-                    <img src="../Content/Images/inicio.png"><b>Album1</b>
-                </div><br>
-                <div class="biblioteca__album">
-                    <img src="../Content/Images/inicio.png"><b>Album2</b>
-                </div><br>
-                <div class="biblioteca__album">
-                    <img src="../Content/Images/inicio.png"><b>Album3</b>
-                </div><br>
-                <div class="biblioteca__album">
-                    <img src="../Content/Images/inicio.png"><b>Album4</b>
-                </div><br>
-            </div>
-        </div>
-    </div>
-        <div class="general">
         <header>
             <div class="general__bienvenida">
                 <div class="hora">
@@ -119,10 +87,14 @@
 
 
         <footer>
-            <div class="reproductor" id="reproductor">
+            <div class="reproductor">
+                <div class="info">
                     <img src="caratula.jpg" alt="Caratula del artista">
-                <div class="info" id="info">
-                    
+                    <div class="cancion-info">
+                        <p>Nombre del Artista</p>
+                        <p>Nombre de la Canción</p>
+                        <p>Nombre del Álbum</p>
+                    </div>
                 </div>
                 <div class="controles">
                     <div class="btn_atras">
@@ -151,58 +123,6 @@
 </body>
 </html>
 <script>
-
-     $(document).ready(function () {
-        var canciones = []; // Arreglo para almacenar las canciones
-        var currentIndex = 0; // Índice de la canción actual
-
-        function cargarCanciones() {
-            $.ajax({
-                url: '@Url.Action("GetCanciones", "Home")',
-                type: 'GET',
-                dataType: 'json',
-                success: function (data) {
-
-                    mostrarCancion(data);
-                    console.log(data);
-                }
-            });
-        }
-        cargarCanciones();
-
-        function mostrarCancion(data) {
-
-            let TemplateIn = "<div class='info'>";
-            let TemplateFin = "</div>";
-            let currentIndex = 0;
-
-            var contenedor = document.getElementById("info");
-
-                //data.forEach(function (item, i) {
-                //    var template = TemplateIn + "<h4>" + item.NombreCancion + "</h4>" + TemplateFin;
-
-                //    contenedor.innerHTML += template;
-                //    console.log(canciones);
-                //})
-
-            var template = TemplateIn + "<h4>" + data[currentIndex].NombreCancion + "</h4>" + TemplateFin;
-            contenedor.innerHTML += template;
-            
-        }
-
-        $("#siguiente").click(function () {
-            currentIndex = (currentIndex + 1) % canciones.length;
-            mostrarCancion(currentIndex);
-        });
-
-        $("#atras").click(function () {
-            currentIndex = (currentIndex - 1 + canciones.length) % canciones.length;
-            mostrarCancion(currentIndex);
-        });
-    });
-
-
-
        function Buscador() {
 
         // Capturar el campo de entrada
@@ -241,3 +161,4 @@
         });
     }
 </script>
+

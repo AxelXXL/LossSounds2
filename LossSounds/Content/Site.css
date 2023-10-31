@@ -71,24 +71,23 @@ i img {
     bottom: 20%;
 }
 
+
 /* Estilos para el reproductor de música en el footer */
-footer .reproductor {
-    position: relative; /* Fijar la posición del div */
-    bottom: 0; /* Colocar el div en la parte inferior */
-    left: 0; /* Colocar el div en el borde izquierdo */
+.reproductor {
     width: 100%; /* Hacer que el div ocupe todo el ancho */
-    background-color: #291E31;
-    height: 70px;
+    background-color: black;
+    border-top: 3px solid #291E31; /* Borde de 2 píxeles de ancho, sólido y de color rojo */
+    margin-top: 10px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background-color: #333; /* Cambia el color de fondo a tu elección */
-    padding: 10px;
+    margin-block-end: 0px;
+    margin-inline-end: 0px;
 }
 
 footer .info {
-    display: flex;
     align-items: center;
+    flex-direction: column;
+    margin: 5px
 }
 
     footer .info .imgPlay {
@@ -151,6 +150,7 @@ footer .controles button#play img {
 img {
     width: 100px;
     margin-right: 10px;
+    margin-left: 10px
 }
 
 /*------------------------------------------------------------------------------------*/
@@ -209,6 +209,10 @@ img {
     margin-left: 13px;
 }
 
+.imagenContainer{
+    width: 10%;
+    height: 10%;
+}
 /*------------------------------------------------------------------------------------*/
 .menu__usuario {
 }

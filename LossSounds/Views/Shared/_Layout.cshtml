@@ -88,9 +88,12 @@
 
         <footer>
             <div class="reproductor">
-                    <img src="caratula.jpg" alt="Caratula del artista">
+                <div id="imagenContainer">
+                    <img id="imagen" src="" alt="Imagen de la canción" style="width: 95px; height: 90px; align-items: center; margin-top: 6px;">
+                </div>
+
                 <div class="info" id="info">
-                    
+
                 </div>
                 <div class="controles">
                     <div class="btn_atras">
@@ -129,28 +132,42 @@
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
-                    mostrarCancion(data);
-                    console.log(data);
+                    canciones = data;
+                    mostrarCancion(currentIndex);
+                    //console.log(data);
                 }
             });
         }
+
         cargarCanciones();
-        function mostrarCancion(data) {
-            let TemplateIn = "<div class='info'>";
+
+        function mostrarCancion(index) {
+            var data = canciones[index];
+
+
+            let TemplateIn = "<div class='info' style='flex-direction: column; text-align: center;'>";
             let TemplateFin = "</div>";
             let currentIndex = 0;
             var contenedor = document.getElementById("info");
-                //data.forEach(function (item, i) {
-                //    var template = TemplateIn + "<h4>" + item.NombreCancion + "</h4>" + TemplateFin;
-                //    contenedor.innerHTML += template;
-                //    console.log(canciones);
-                //})
-            var template = TemplateIn + "<h4>" + data[currentIndex].NombreCancion + "</h4>" + TemplateFin;
+
+            var template = TemplateIn +
+                "<h5 class='nomCancion'>" + data[currentIndex].NombreCancion + "</h5>" +
+                "<h6 class='nomArtista'>" + data[currentIndex].NombreArtista + "</h6>" +
+                "<h6 class='nomAlbum'>" + data[currentIndex].NombreAlbum + "</h6>"
+                + TemplateFin;
             contenedor.innerHTML += template;
 
+            var imagenData = data[currentIndex].Caratula;
+            var imagenContainer = document.getElementById("imagenContainer");
+            var imagen = document.getElementById("imagen");
+            var blob = new Blob([new Uint8Array(imagenData)], { type: "image/jpeg" });
+            var imageUrl = URL.createObjectURL(blob);
+            imagen.src = imageUrl;
         }
+
+
         $("#siguiente").click(function () {
-            currentIndex = (currentIndex + 1) % canciones.length;
+            currentIndex += currentIndex + 1;
             mostrarCancion(currentIndex);
         });
         $("#atras").click(function () {

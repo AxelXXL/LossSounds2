@@ -123,9 +123,10 @@
 </html>
 <script>
 
-    $(document).ready(function () {
-        var canciones = []; // Arreglo para almacenar las canciones
+     $(document).ready(function () {
         var currentIndex = 0; // Índice de la canción actual
+        var canciones = []; // Arreglo para almacenar las canciones
+
         function cargarCanciones() {
             $.ajax({
                 url: '@Url.Action("GetCanciones", "Home")',
@@ -134,7 +135,6 @@
                 success: function (data) {
                     canciones = data;
                     mostrarCancion(currentIndex);
-                    //console.log(data);
                 }
             });
         }
@@ -143,33 +143,31 @@
 
         function mostrarCancion(index) {
             var data = canciones[index];
-
-
+            //console.log(data);
             let TemplateIn = "<div class='info' style='flex-direction: column; text-align: center;'>";
             let TemplateFin = "</div>";
-            let currentIndex = 0;
             var contenedor = document.getElementById("info");
 
             var template = TemplateIn +
-                "<h5 class='nomCancion'>" + data[currentIndex].NombreCancion + "</h5>" +
-                "<h6 class='nomArtista'>" + data[currentIndex].NombreArtista + "</h6>" +
-                "<h6 class='nomAlbum'>" + data[currentIndex].NombreAlbum + "</h6>"
+                "<h5 class='nomCancion'>" + data.NombreCancion + "</h5>" +
+                "<h6 class='nomArtista'>" + data.NombreArtista + "</h6>" +
+                "<h6 class='nomAlbum'>" + data.NombreAlbum + "</h6>"
                 + TemplateFin;
-            contenedor.innerHTML += template;
 
-            var imagenData = data[currentIndex].Caratula;
-            var imagenContainer = document.getElementById("imagenContainer");
-            var imagen = document.getElementById("imagen");
+            contenedor.innerHTML = template;
+
+            var imagenData = data.Caratula;
+            var imagen = $("#imagen");
             var blob = new Blob([new Uint8Array(imagenData)], { type: "image/jpeg" });
             var imageUrl = URL.createObjectURL(blob);
-            imagen.src = imageUrl;
+            imagen.attr("src", imageUrl);
         }
 
-
         $("#siguiente").click(function () {
-            currentIndex += currentIndex + 1;
+            currentIndex = (currentIndex + 1) % canciones.length;
             mostrarCancion(currentIndex);
         });
+
         $("#atras").click(function () {
             currentIndex = (currentIndex - 1 + canciones.length) % canciones.length;
             mostrarCancion(currentIndex);

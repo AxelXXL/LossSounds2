@@ -13,10 +13,9 @@ namespace LossSounds.Controllers
 {
     public class HomeController : Controller
     {
-        private BD_LOSS_SOUNDSEntities db = new BD_LOSS_SOUNDSEntities();
+        public BD_LOSS_SOUNDSEntities db = new BD_LOSS_SOUNDSEntities();
         public ActionResult Index()
         {
-
             return View();
         }
 
@@ -163,8 +162,9 @@ namespace LossSounds.Controllers
         public JsonResult GetCancionList(string txt)
         {
             var items = db.tb_Cancion
-                .Where(x =>
-                x.Nombre_Cancion.Contains(txt) || x.tb_Album.Nombre_album.Contains(txt) || x.tb_Album.Genero.Contains(txt)
+                .Where(x => x.Nombre_Cancion.Contains(txt)
+                || x.tb_Album.Nombre_album.Contains(txt)
+                || x.tb_Album.Genero.Contains(txt)
                 || x.tb_Artista.Nombre_Artista.Contains(txt))
                 .Select(x => new
                 {
@@ -173,10 +173,8 @@ namespace LossSounds.Controllers
                 })
                 .ToList();
             return Json(items, JsonRequestBehavior.AllowGet);
-
-
-
         }
+
         [HttpGet]
         public JsonResult GetCancionesArtist(int idArtist)
         {
@@ -325,5 +323,27 @@ namespace LossSounds.Controllers
 
             return Json("Done Dislike", JsonRequestBehavior.AllowGet);
         }
+
+        
+        [HttpGet]
+        public JsonResult GetCanciones()
+        {
+
+            var datos = db.tb_Cancion.Include(t => t.tb_Album).Include(t => t.tb_Artista)
+                                      .Take(50) // Tomar las primeras 50 filas
+                                      .Select(c => new
+                                      {
+                                          IdCancion = c.ID_CANCION,
+                                          NombreCancion = c.Nombre_Cancion,
+                                          NombreArtista = c.tb_Artista.Nombre_Artista,
+                                          NombreAlbum = c.tb_Album.Nombre_album,
+                                          Caratula = c.Caratula_Cancion
+                                      })
+                                          .ToList();
+
+            return Json(datos, JsonRequestBehavior.AllowGet);
+
+        }
+        
     }
 }

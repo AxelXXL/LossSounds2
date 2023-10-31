@@ -61,59 +61,187 @@ i img {
     margin-top: 2%;
 }
 
-.reproductor {
-    position: fixed; /* Fijar la posición del div */
+
+
+.contenido_general {
+    margin-top: 150px;
+    width: 85%;
+    height: 520px;
+    float: right;
+    bottom: 20%;
+}
+
+/* Estilos para el reproductor de música en el footer */
+footer .reproductor {
+    position: relative; /* Fijar la posición del div */
     bottom: 0; /* Colocar el div en la parte inferior */
     left: 0; /* Colocar el div en el borde izquierdo */
     width: 100%; /* Hacer que el div ocupe todo el ancho */
-    background-color: #ccc; /* Color de fondo (puedes cambiarlo) */
-    height: 100px;
+    background-color: #291E31;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333; /* Cambia el color de fondo a tu elección */
+    padding: 10px;
 }
+
+footer .info {
+    display: flex;
+    align-items: center;
+}
+
+    footer .info .imgPlay {
+        width: 50px;
+        height: 30px;
+        margin-right: 10px;
+        align-items: center;
+        text-align: center;
+    }
+
+footer .cancion-info p {
+    color: #fff; /* Cambia el color del texto a tu elección */
+}
+
+footer .controles {
+    display: flex; /* Para hacer que los botones se vean de forma horizontal */
+    align-items: center; /* Alinea los botones verticalmente en el centro */
+}
+
+    footer .controles button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-left: 5px
+    }
+
+footer .barra-reproduccion {
+    width: 60%;
+    margin-left: 10px; /* Espacio entre los controles y la barra de reproducción */
+}
+
+    footer .barra-reproduccion input[type="range"] {
+        width: 100%;
+        -webkit-appearance: none;
+        appearance: none;
+        height: 3px; /* Cambia el grosor de la barra de reproducción */
+        background: #555; /* Cambia el color de fondo de la barra de reproducción */
+        outline: none;
+    }
+
+        footer .barra-reproduccion input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 10px; /* Cambia el tamaño del control deslizante */
+            height: 10px; /* Cambia el tamaño del control deslizante */
+            background: #fff; /* Cambia el color del control deslizante */
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+/* Estilos para los botones de control (atras, play, pausa, siguiente) */
+footer .controles button#play img {
+    max-width: 20px; /* Ajusta el tamaño del ícono de reproducción */
+}
+
+.btn_play {
+    margin-left: 5px;
+}
+
+img {
+    width: 100px;
+    margin-right: 10px;
+}
+
 /*------------------------------------------------------------------------------------*/
 
+/*--------------------------HomePage------------------------------------------------*/
 
+.general__contenido__novedades {
+    height: 350px;
+    margin-top: 0 auto;
+    width: 100%;
+    height: 230px;
+    float: right;
+}
+
+.general__contenido__novedades__cuadro {
+    background-color: rgb(0, 0, 0);
+    height: 50px;
+    width: 200px;
+    margin-left: 2%;
+    margin-top: 0%;
+    text-align: center;
+    padding-top: 10px;
+    border-radius: 20px;
+}
+
+.tarjeta {
+    display: inline-block;
+    background-color: #8B51B9;
+    border: 1px solid lightgray;
+    border-radius: 15px;
+    font-family: sans-serif;
+    margin-left: 2%;
+    max-width: 150px; /* La tarjeta no será más ancha que 300px */
+    max-height: 170px; /* La tarjeta no será más alta que 400px */
+    text-align: center;
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+}
+
+.name-cancion-nov {
+    font-size: 15px;
+}
+
+.name-artist-nov {
+    font-size: 13px;
+}
+
+.name-album-nov {
+    font-size: 10px;
+}
+
+.caratula {
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    margin-left: 13px;
+}
+
+/*------------------------------------------------------------------------------------*/
 .menu__usuario {
-   
 }
 
-.menu__usuario img {
-  
-}
+    .menu__usuario img {
+    }
 
-.menu__usuario img:hover {
-   
-}
+        .menu__usuario img:hover {
+        }
 /*---------*/
 .menu__inicio {
-   
 }
 
-.menu__inicio img {
-   
-}
+    .menu__inicio img {
+    }
 
-.menu__inicio img:hover {
-   
-}
+        .menu__inicio img:hover {
+        }
 /*--------*/
 .menu__biblioteca {
 }
 
 .menu__biblioteca__letrero {
-   
 }
 
-.menu__biblioteca__letrero img {
-    
-}
+    .menu__biblioteca__letrero img {
+    }
 
-.biblioteca__album {
-    
-}
 
 .biblioteca__album img {
-    height: 3em;
-    padding: 5px;
+    width: 30%;
+    height: 50px;
+    margin-left: 2%;
 }
 
 .nombreA {
@@ -154,7 +282,7 @@ i img {
     border-radius: var(--border-radius);
     transition: border-radius 0.5s ease;
     background: var(--input-bg,#fff);
-    margin-left:25%;
+    margin-left: 25%;
 }
 /* styling of Input */
 .input {
@@ -225,22 +353,6 @@ input:not(:placeholder-shown) ~ .reset {
     border-color: rgb(0, 0, 0);
 }
 
-.general__contenido__novedades {
-    background-color: rgb(29, 28, 28);
-    height: 300px;
-    margin-top: 5%;
-}
-
-.general__contenido__novedades__cuadro {
-    background-color: rgb(0, 0, 0);
-    height: 50px;
-    width: 200px;
-    margin-left: 5%;
-    margin-top: 1%;
-    text-align: center;
-    padding-top: 10px;
-    border-radius: 20px;
-}
 
 .general__contenido__recomendaciones__cuadro {
     background-color: rgb(0, 0, 0);
@@ -261,18 +373,7 @@ input:not(:placeholder-shown) ~ .reset {
 
 @charset "utf-8";
 
-.tarjeta {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 420px;
-    border: 1px solid lightgray;
-    box-shadow: 2px 2px 8px 4px #d3d3d3d1;
-    border-radius: 15px;
-    font-family: sans-serif;
-    margin-left: 2%;
-    margin-top: 2%;
-}
+
 
 .titulo {
     font-size: 24px;
@@ -310,36 +411,3 @@ input:not(:placeholder-shown) ~ .reset {
 
 
 
-
-
-.info {
-    display: flex;
-    align-items: center;
-}
-
-img {
-    width: 100px;
-    height: 100px;
-    margin-right: 10px;
-}
-
-.cancion-info {
-    text-align: left;
-}
-
-.controles button {
-    background-color: #fff;
-    color: #333;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
-}
-
-.barra-reproduccion {
-    flex: 1;
-}
-
-#barra-progreso {
-    width: 100%;
-}

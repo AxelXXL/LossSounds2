@@ -324,6 +324,7 @@ namespace LossSounds.Controllers
             return Json("Done Dislike", JsonRequestBehavior.AllowGet);
         }
 
+        
         [HttpGet]
         public JsonResult GetCanciones()
         {
@@ -340,11 +341,9 @@ namespace LossSounds.Controllers
                                       })
                                           .ToList();
 
-
-
             return Json(datos, JsonRequestBehavior.AllowGet);
 
         }
-
+        
     }
 }

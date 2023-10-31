@@ -184,7 +184,7 @@
             var imagen = document.getElementById(idCarat);
             console.log(item.Caratula);
             // Convierte el array de bytes a una cadena
-            var binaryString = String.fromCharCode.apply(null, item.Caratula);
+            var binaryString = String.fromCharCode.apply(null, Array.from(item.Caratula));
 
             // Convierte la cadena binaria a base64
             var base64String = btoa(binaryString);

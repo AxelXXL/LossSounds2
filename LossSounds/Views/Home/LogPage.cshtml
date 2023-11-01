@@ -9,6 +9,7 @@
 
 <head>
     <link href="~/Content/login.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="~/Content/stylesIndexHome.css">*@
 </head>
 <div class="form-container">
     <p class="title">Bienvenido</p>
@@ -30,14 +31,23 @@
         </div>
         <br />
         <p class="sign-up-label">
-            ¿No tienes una cuenta?<span class="sign-up-link" onclick="">Registrate</span>
+            ¿No tienes una cuenta?<span class="sign-up-link" onclick="goIndex()">Registrate</span>
         </p>
     
 </div>
 
-@section scripts
+<script>
+    function goIndex() {
+       var url = '@Url.Action("Index", "Home")';
+
+    // Redirigir al usuario
+    window.location.href = url;
+    }
+
+</script>
+<!--@section scripts
 {
-    <script>
+    <script>-->
     @*$(document).ready(function () {
         $("#frm").submit(function (e) {
             e.preventDefault();
@@ -55,8 +65,8 @@
             })
         })
     })*@
-    </script>
+    <!--</script>
     
        
     
-}
+}-->

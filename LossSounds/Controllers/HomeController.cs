@@ -65,6 +65,18 @@ namespace LossSounds.Controllers
             }
 
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Signup(tb_Usuario userr)
+        {
+            //tb_Usuario us = new tb_Usuario();
+            //us.Nombre_Usuario = user;
+            //us.Contrasena = password;
+            db.tb_Usuario.Add(userr);
+            db.SaveChanges();
+
+            return Content("Inicia sesion!");
+        }
 
         public ActionResult About()
         {

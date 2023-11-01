@@ -1,4 +1,4 @@
-﻿
+﻿@model LossSounds.Models.tb_Usuario
 @{
     ViewBag.Title = "Index";
     Layout = null;
@@ -25,7 +25,7 @@
                     Escucha musica de calidad con LOOS SOUND
                     EMPIEZA AHORA
                 </p>
-                <input type="button" value="Iniciar Sesion">
+                <input type="button" onclick="goLogin()" value="Iniciar Sesion">
             </div>
         </div>
         <div class="form-information">
@@ -36,24 +36,62 @@
                     <i class='bx bxl-facebook-circle'></i>
                 </div>
                 <p>o usa una gmail para registrarte</p>
-                <form class="form">
+
+                @using (Html.BeginForm("Signup", "Home", FormMethod.Post, new { @class = "form" }))
+                {
+                    @Html.AntiForgeryToken()
                     <label>
                         <i class='bx bx-user'></i>
-                        <input type="text" placeholder="Nombre Completo">
+                        @*<input type="text" id="userr" placeholder="Nombre Completo" name="user">*@
+                        @Html.TextBoxFor(Model => Model.Nombre_Usuario, new { @placeholder = "Usuario" })
                     </label>
-                    <label>
+                    @*<label>
                         <i class='bx bxl-gmail'></i>
                         <input type="email" placeholder="Correo electronico">
-                    </label>
-                    <label>
-                        <i class='bx bx-lock-alt'></i>
-                        <input type="password" placeholder="Ingrese contraseña">
-                    </label>
+                    </label>*@
+            <label>
+                <i class='bx bx-lock-alt'></i>
+                @Html.PasswordFor(Model => Model.Contrasena, new { @placeholder = "Contraseña" })
+            </label>
                     <input type="submit" value="Registrarse">
-                </form>
+
+
+                }
             </div>
         </div>
     </div>
     @*<script src="script.js"></script>*@
 </body>
 </html>
+
+<script>
+    function goLogin() {
+       var url = '@Url.Action("LogPage", "Home")';
+
+    // Redirigir al usuario
+    window.location.href = url;
+    }
+    function fnSign() {
+        var us = document.getElementById("userr").value;
+        var pas = document.getElementById("pass").value;
+         $.ajax({
+            url: '@Url.Action("Signup", "Home")', // Reemplaza con la URL correcta
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                user: us,
+                password: pass
+                  },
+                success: function (data) {
+                // "data" contendrá los datos en formato JSON
+                console.log("add user", data);
+
+           },
+                error: function () {
+                // Manejar errores si es necesario
+                    console.log("error");
+                }
+           });
+    }
+
+</script>

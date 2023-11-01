@@ -87,13 +87,10 @@ i img {
 footer .info {
     align-items: center;
     flex-direction: column;
-    margin: 5px
+    margin: 5px;
 }
 
-    footer .info .imgPlay {
-        width: 50px;
-        height: 30px;
-        margin-right: 10px;
+    footer .imgPlay {
         align-items: center;
         text-align: center;
     }
@@ -102,17 +99,23 @@ footer .cancion-info p {
     color: #fff; /* Cambia el color del texto a tu elección */
 }
 
+
 footer .controles {
     display: flex; /* Para hacer que los botones se vean de forma horizontal */
     align-items: center; /* Alinea los botones verticalmente en el centro */
 }
 
-    footer .controles button {
-        background: none;
-        border: none;
-        cursor: pointer;
-        margin-left: 5px
-    }
+
+.me-gusta{
+    margin-left: 10px;
+}
+
+footer .controles  {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 5px
+}
 
 footer .barra-reproduccion {
     width: 60%;
@@ -143,7 +146,11 @@ footer .controles button#play img {
     max-width: 20px; /* Ajusta el tamaño del ícono de reproducción */
 }
 
-.btn_play {
+.btn_play{
+    margin-left: 5px;
+}
+
+.btn_siguiente{
     margin-left: 5px;
 }
 
@@ -153,12 +160,17 @@ img {
     margin-left: 10px
 }
 
+button {
+    background: none; /* Elimina el fondo */
+    border: none; /* Elimina el borde */
+    cursor: pointer; /* Cambia el cursor a una mano para indicar que es un botón */
+}
+
 /*------------------------------------------------------------------------------------*/
 
 /*--------------------------HomePage------------------------------------------------*/
 
 .general__contenido__novedades {
-    height: 350px;
     margin-top: 0 auto;
     width: 100%;
     height: 230px;
@@ -176,6 +188,21 @@ img {
     border-radius: 20px;
 }
 
+.general__contenido__recomendaciones {
+    width: 100%;
+    float: right;
+}
+
+.general__contenido__recomendaciones__cuadro {
+    background-color: rgb(0, 0, 0);
+    height: 50px;
+    width: 350px;
+    margin-left: 2%;
+    margin-top: 1%;
+}
+
+
+
 .tarjeta {
     display: inline-block;
     background-color: #8B51B9;
@@ -183,8 +210,8 @@ img {
     border-radius: 15px;
     font-family: sans-serif;
     margin-left: 2%;
-    max-width: 150px; /* La tarjeta no será más ancha que 300px */
-    max-height: 170px; /* La tarjeta no será más alta que 400px */
+    width: 140px; /* La tarjeta no será más ancha que 300px */
+    height: 150px; /* La tarjeta no será más alta que 400px */
     text-align: center;
     align-items: center; /* Centra verticalmente */
     justify-content: center; /* Centra horizontalmente */
@@ -203,10 +230,11 @@ img {
 }
 
 .caratula {
+    width: 100px;
+    height: 100px;
+    align-items: center;
     text-align: center;
-    top: 50%;
-    left: 50%;
-    margin-left: 13px;
+    border-radius: 5%;
 }
 
 .imagenContainer{
@@ -356,19 +384,6 @@ input:not(:placeholder-shown) ~ .reset {
     display: inline-block;
     border-color: rgb(0, 0, 0);
 }
-
-
-.general__contenido__recomendaciones__cuadro {
-    background-color: rgb(0, 0, 0);
-    height: 50px;
-    width: 350px;
-    margin-left: 5%;
-    margin-top: 1%;
-    text-align: center;
-    padding-top: 10px;
-    border-radius: 20px;
-}
-
 
 
 /*----------------------------------*/

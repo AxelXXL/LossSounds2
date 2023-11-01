@@ -1,7 +1,7 @@
-﻿.archivo {
-    border: medium double #369;
-    border-radius: 10px; 
+﻿input#archivo {
+    border-radius: 10px;
     width: 70%;
+    color: black !important;
 }
 
 .head{

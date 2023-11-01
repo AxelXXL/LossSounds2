@@ -201,10 +201,12 @@
     <Content Include="Content\Images\libro.png" />
     <Content Include="Content\Images\Logo.png" />
     <Content Include="Content\Images\Lupa.png" />
+    <Content Include="Content\Images\Me gusta.png" />
     <Content Include="Content\Images\pausa.png" />
     <Content Include="Content\Images\play.png" />
     <Content Include="Content\Images\usuario.png" />
     <Content Include="Content\index.css" />
+    <Content Include="Content\login.css" />
     <Content Include="Content\SaveMusic\SaveMusic.css" />
     <Content Include="Content\stylesIndexHome.css" />
     <Content Include="favicon.ico" />

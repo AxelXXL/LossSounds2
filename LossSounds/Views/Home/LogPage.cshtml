@@ -7,17 +7,66 @@
 
 }
 
-<h2>Login</h2>
+<head>
+    <link href="~/Content/login.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="~/Content/stylesIndexHome.css">*@
+</head>
+<div class="form-container">
+    <p class="title">Bienvenido</p>
+    
+        <div class="form">
+            @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
 
-@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                @*@Html.LabelFor(Model => Model.Nombre_Usuario)*@
+                @Html.TextBoxFor(Model => Model.Nombre_Usuario, new { @class = "input" })
+
+                @*@Html.LabelFor(Model => Model.Contrasena)*@
+                @Html.PasswordFor(Model => Model.Contrasena, new { @class = "input" })
+
+                <input type="submit" class="form-btn btn-success" value="Iniciar sesión" />
+            }
+
+        </div>
+        <br />
+        <p class="sign-up-label">
+            ¿No tienes una cuenta?<span class="sign-up-link" onclick="goIndex()">Registrate</span>
+        </p>
+    
+</div>
+
+<script>
+    function goIndex() {
+       var url = '@Url.Action("Index", "Home")';
+
+    // Redirigir al usuario
+    window.location.href = url;
+    }
+
+</script>
+<!--@section scripts
 {
-    @Html.AntiForgeryToken()
+    <script>-->
+    @*$(document).ready(function () {
+        $("#frm").submit(function (e) {
+            e.preventDefault();
 
-    @Html.LabelFor(Model => Model.Nombre_Usuario)
-    @Html.TextBoxFor(Model => Model.Nombre_Usuario)
+            url = "@Url.Content("~/Access/Enter")"
+            parametros = $(this).serialize();
 
-    @Html.LabelFor(Model => Model.Contrasena)
-    @Html.PasswordFor(Model => Model.Contrasena)
+            $.post(url, parametros, function (data) {
 
-    <input type="submit" value="Iniciar sesión" />
-}
+                if (data == "1") {
+                    document.location.href = "@Url.Content("~/")";
+                } else {
+                    alert(data)
+                }
+            })
+        })
+    })*@
+    <!--</script>
+    
+       
+    
+}-->

@@ -112,6 +112,9 @@
                 <div class="barra-reproduccion">
                     <input type="range" id="barra-progreso" min="0" max="100">
                 </div>
+                <div class="me-gusta">
+                    <button id="likes">Me Gusta</button>
+                </div>
             </div>
         </footer>
 
@@ -144,7 +147,7 @@
         function mostrarCancion(index) {
             var data = canciones[index];
             //console.log(data);
-            let TemplateIn = "<div class='info' style='flex-direction: column; text-align: center;'>";
+            let TemplateIn = "<div class='info' style='width: 130px; flex-direction: column; top: 50%; left: 50 %;'>";
             let TemplateFin = "</div>";
             var contenedor = document.getElementById("info");
 

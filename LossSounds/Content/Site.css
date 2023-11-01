@@ -87,13 +87,10 @@ i img {
 footer .info {
     align-items: center;
     flex-direction: column;
-    margin: 5px
+    margin: 5px;
 }
 
-    footer .info .imgPlay {
-        width: 50px;
-        height: 30px;
-        margin-right: 10px;
+    footer .imgPlay {
         align-items: center;
         text-align: center;
     }
@@ -102,17 +99,23 @@ footer .cancion-info p {
     color: #fff; /* Cambia el color del texto a tu elección */
 }
 
+
 footer .controles {
     display: flex; /* Para hacer que los botones se vean de forma horizontal */
     align-items: center; /* Alinea los botones verticalmente en el centro */
 }
 
-    footer .controles button {
-        background: none;
-        border: none;
-        cursor: pointer;
-        margin-left: 5px
-    }
+
+.me-gusta{
+    margin-left: 10px;
+}
+
+footer .controles  {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 5px
+}
 
 footer .barra-reproduccion {
     width: 60%;
@@ -143,7 +146,11 @@ footer .controles button#play img {
     max-width: 20px; /* Ajusta el tamaño del ícono de reproducción */
 }
 
-.btn_play {
+.btn_play{
+    margin-left: 5px;
+}
+
+.btn_siguiente{
     margin-left: 5px;
 }
 
@@ -151,6 +158,12 @@ img {
     width: 100px;
     margin-right: 10px;
     margin-left: 10px
+}
+
+button {
+    background: none; /* Elimina el fondo */
+    border: none; /* Elimina el borde */
+    cursor: pointer; /* Cambia el cursor a una mano para indicar que es un botón */
 }
 
 /*------------------------------------------------------------------------------------*/
@@ -203,10 +216,11 @@ img {
 }
 
 .caratula {
+    width: 100px;
+    height: 100px;
+    align-items: center;
     text-align: center;
-    top: 50%;
-    left: 50%;
-    margin-left: 13px;
+    margin-left: 15px;
 }
 
 .imagenContainer{

@@ -43,6 +43,7 @@
                     console.log("error al obtener NOVEDADES");
                 }
            });
+
          //GET RECOMENDACIONES
            $.ajax({
                 url: '@Url.Action("GetRecomendaciones", "Home")', // Reemplaza con la URL correcta
@@ -79,44 +80,39 @@
     });
 
     function AddNovedades(data) {
-        let TemplateIn = "<div id='cont-canciones-nov' class='tarjeta'>";
-        let TemplateFin = "</div>";
-        let TextIn = "<p>";
-        let TextFin = "</p>";
-        var Img = "datos_base64_de_la_imagen"; // Reemplaza esto con tus datos.
-        // Obtén el elemento en el que deseas insertar el HTML.
         var contenedor = document.getElementById("cont-novedades");
 
-
         data.forEach(function (item, i) {
-               var template =  TemplateIn + "<h1 class='name-cancion-nov'>" + item.NombreCancion + "</h1>" + "<p class='name-artist-nov'>" + item.NombreArtista
-                   + "</h1>" + "<h1 class='name-album-nov'>" +item.NombreAlbum + "</h1>" + "<img class='caratula' id='caratula" + i + "' width='100' height='130' alt='Caratula'/>" +
-                   "<button class='likes' onclick='fnlike(this)' id='like" + i + "'>Like</button>" +
-                   "<button class='dislikes' onclick='fndislike(this)' id='dislike" + i + "'>DisLike</button>" +TemplateFin;
+            var tarjeta = document.createElement("div");
+            tarjeta.classList.add("tarjeta");
 
-            contenedor.innerHTML += template;
-            let idCarat = "caratula" + i;
-            //ConvertByteToImg(idCarat, item.Caratula);
+            tarjeta.innerHTML = "<h1 class='name-cancion-nov'>" + item.NombreCancion + "</h1>" +
+                "<p class 'name-artist-nov'>" + item.NombreArtista + "</p>" +
+                "<h1 class='name-album-nov'>" + item.NombreAlbum + "</h1>" +
+                "<img class='caratula' width='100' height='130' alt='Caratula'/>";
 
-            var imagen = document.getElementById(idCarat);
-            console.log(item.Caratula);
-            // Convierte el array de bytes a una cadena
-            var binaryString = String.fromCharCode.apply(null,item.Caratula);
+            contenedor.appendChild(tarjeta);
 
-            // Convierte la cadena binaria a base64
-            var base64String = btoa(binaryString);
-            //imagen.src = "/Home/GetImagen?dataImg=" + item.Caratula;
-            imagen.src = "data:image/png;base64," + base64String;
-            //add atributo de id cancion al id de like y dislike
-            let plike = document.getElementById("like"+i);
-            plike.setAttribute("cancion-id", item.IdCancion);
-            let pdislike = document.getElementById("dislike" + i);
-            pdislike.setAttribute("cancion-id", item.IdCancion);
-            //$("#like").on("click", fnlike );
+            var imagenes = document.querySelectorAll(".caratula");
 
+            var imgBase64 = "data:image/jpeg;base64," + encodeBase64(item.Caratula);
 
+            function encodeBase64(array) {
+                var binary = '';
+                var len = array.length;
+                for (var i = 0; i < len; i++) {
+                    binary += String.fromCharCode(array[i]);
+                }
+                return btoa(binary);
+            }
+
+            imagenes[i].src = imgBase64;
         });
     }
+
+
+
+
 
     function AddRecomendaciones(data) {
         let TemplateIn = "<div id='cont-canciones-reco' class='cont-canciones-reco'>";

@@ -100,7 +100,7 @@ namespace LossSounds.Controllers
         public JsonResult GetNovedades()
         {
             var datos = db.tb_Cancion.Include(t => t.tb_Album).Include(t => t.tb_Artista)
-                                       .Take(50) // Tomar las primeras 50 filas
+                                       .Take(6) // Tomar las primeras 50 filas
                                        .Select(c => new
                                        {
                                            IdCancion = c.ID_CANCION,
@@ -121,55 +121,54 @@ namespace LossSounds.Controllers
             var random = new Random();
 
             var datalikes = db.tb_LikeMusic.Include(t => t.tb_Cancion).Include(t => t.tb_Usuario)
-                                      .Where(a => a.ID_USUARIO == idUser)
-                                      .Select(c => new
-                                      {
-                                          Gen = c.tb_Cancion.tb_Album.Genero
-                                      })
-
-                                      .FirstOrDefault();
+                .Where(a => a.ID_USUARIO == idUser)
+                .Select(c => new
+                {
+                    Gen = c.tb_Cancion.tb_Album.Genero
+                })
+                .FirstOrDefault();
 
             if (datalikes != null)
             {
-                //// Mezcla la lista
-                //datalikes = datalikes.OrderBy(x => random.Next()).ToList();
-
-                //var randomLike = datalikes.FirstOrDefault();
                 var datos = db.tb_Cancion.Include(t => t.tb_Album).Include(t => t.tb_Artista)
-                                      .Where(c => c.tb_Album.Genero.Contains(datalikes.Gen))
-                                      .Take(50) // Tomar las primeras 50 filas
-                                      .Select(c => new
-                                      {
-                                          IdCancion = c.ID_CANCION,
-                                          NombreCancion = c.Nombre_Cancion,
-                                          NombreArtista = c.tb_Artista.Nombre_Artista,
-                                          NombreAlbum = c.tb_Album.Nombre_album,
-                                          Caratula = c.Caratula_Cancion
-                                      })
-                                          .ToList();
-                return Json(datos, JsonRequestBehavior.AllowGet);
+                    .Where(c => c.tb_Album.Genero.Contains(datalikes.Gen))
+                    .ToList(); // Obtén los datos de la base de datos
+
+                // Ordena alfabéticamente en C# y selecciona todas las canciones
+                var sortedData = datos
+                    .OrderBy(c => c.Nombre_Cancion, StringComparer.CurrentCulture)
+                    .Select(c => new
+                    {
+                        IdCancion = c.ID_CANCION,
+                        NombreCancion = c.Nombre_Cancion,
+                        NombreArtista = c.tb_Artista.Nombre_Artista,
+                        NombreAlbum = c.tb_Album.Nombre_album,
+                        Caratula = c.Caratula_Cancion
+                    })
+                    .ToList();
+
+                return Json(sortedData, JsonRequestBehavior.AllowGet);
             }
             else
             {
                 var datos = db.tb_Cancion.Include(t => t.tb_Album).Include(t => t.tb_Artista)
-                                      .Take(50) // Tomar las primeras 50 filas
-                                      .Select(c => new
-                                      {
-                                          IdCancion = c.ID_CANCION,
-                                          NombreCancion = c.Nombre_Cancion,
-                                          NombreArtista = c.tb_Artista.Nombre_Artista,
-                                          NombreAlbum = c.tb_Album.Nombre_album,
-                                          Caratula = c.Caratula_Cancion
-                                      })
+                    .ToList(); // Obtén los datos de la base de datos
 
-                                          .ToList();
-                return Json(datos, JsonRequestBehavior.AllowGet);
+                // Ordena alfabéticamente en C# y selecciona todas las canciones
+                var sortedData = datos
+                    .OrderBy(c => c.Nombre_Cancion, StringComparer.CurrentCulture)
+                    .Select(c => new
+                    {
+                        IdCancion = c.ID_CANCION,
+                        NombreCancion = c.Nombre_Cancion,
+                        NombreArtista = c.tb_Artista.Nombre_Artista,
+                        NombreAlbum = c.tb_Album.Nombre_album,
+                        Caratula = c.Caratula_Cancion
+                    })
+                    .ToList();
+
+                return Json(sortedData, JsonRequestBehavior.AllowGet);
             }
-
-
-
-
-
         }
         public JsonResult GetCancionList(string txt)
         {

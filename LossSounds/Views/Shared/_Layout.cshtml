@@ -32,7 +32,7 @@
         <header>
             <div class="general__bienvenida">
                 <div class="hora">
-                    <h1 class="general__bienvenida__bn">@saludo @Session["Name"]|</h1>
+                    <h1 class="general__bienvenida__bn">@saludo @Session["Name"]</h1>
                     <h3 class="general__bienvenida__hora">@DateTime.Now.ToString("h:mm tt")</h3>
                 </div>
 
@@ -126,7 +126,41 @@
 </html>
 <script>
 
-     $(document).ready(function () {
+    $(document).ready(function () {
+
+        var isPlaying = false; // Variable para controlar si la canción está reproduciéndose
+
+        $("#play").hide();
+
+        // Función para cambiar el botón entre "Pausa" y "Play"
+        function togglePlayPause() {
+            var playButton = $("#play");
+            var pauseButton = $("#pausa");
+
+            if (isPlaying) {
+                playButton.show();
+                pauseButton.hide();
+            } else {
+                playButton.hide();
+                pauseButton.show();
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Asigna el evento clic al botón de "Pausa"
+        $("#pausa").click(function () {
+            // Agregar aquí la lógica para pausar la canción
+            togglePlayPause();
+        });
+
+        // Asigna el evento clic al botón de "Play"
+        $("#play").click(function () {
+            // Agregar aquí la lógica para reproducir la canción
+            togglePlayPause();
+        });
+
+
+
         var currentIndex = 0; // Índice de la canción actual
         var canciones = []; // Arreglo para almacenar las canciones
 
@@ -214,6 +248,7 @@
         });
 
         });
+
     }
 </script>
 

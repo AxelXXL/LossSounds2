@@ -397,7 +397,6 @@ input:not(:placeholder-shown) ~ .reset {
 .titulo {
     font-size: 24px;
     padding: 10px 10px 0 10px;
-    ;
 }
 
 .cuerpo {
@@ -423,10 +422,433 @@ input:not(:placeholder-shown) ~ .reset {
             bottom: 0;
             left: 0;
             z-index: 1;
-            content: ""
         }
 
 /*-------------------------------------------------------*/
 
+@media (max-width: 768px) {
+    /*---------------Pagina Layout------------------------------------------------------*/
+
+    * {
+        padding: 0px;
+        margin: 0px;
+        font-family: sans-serif;
+        color: red;
+    }
+
+    body {
+        background-color: rgb(0, 0, 0);
+        margin: auto;
+    }
+
+    .container {
+        position: relative;
+    }
 
 
+    .menu {
+        width: 15%;
+        height: 680px;
+        /* centrado vertical */
+        position: absolute;
+    }
+
+    .general__bienvenida {
+        position: absolute;
+        top: 0; /* Lo colocamos en la parte superior */
+        right: 0; /* Lo colocamos en la parte derecha */
+        width: 85%;
+        height: 150px;
+    }
+
+    .general__bienvenida__logo {
+        position: absolute;
+        top: 0;
+        right: 0;
+        align-items: center;
+        margin-top: 1%;
+    }
+
+    .general__bienvenida__busqueda {
+        position: absolute;
+        justify-content: center; /* Centra horizontalmente */
+        align-items: center; /* Centra verticalmente */
+        top: 40px;
+        right: 350px;
+    }
+
+
+    i img {
+        height: 20px;
+    }
+
+    .hora {
+        position: absolute;
+        top: 0;
+        align-items: center;
+        margin-left: 2%;
+        margin-top: 2%;
+    }
+
+
+
+    .contenido_general {
+        margin-top: 150px;
+        width: 85%;
+        height: 520px;
+        float: right;
+        bottom: 20%;
+    }
+
+
+    /* Estilos para el reproductor de música en el footer */
+    .reproductor {
+        width: 100%; /* Hacer que el div ocupe todo el ancho */
+        background-color: black;
+        border-top: 3px solid #291E31; /* Borde de 2 píxeles de ancho, sólido y de color rojo */
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        margin-block-end: 0px;
+        margin-inline-end: 0px;
+    }
+
+    footer .info {
+        align-items: center;
+        flex-direction: column;
+        margin: 5px;
+    }
+
+    footer .imgPlay {
+        align-items: center;
+        text-align: center;
+    }
+
+    footer .cancion-info p {
+        color: #fff; /* Cambia el color del texto a tu elección */
+    }
+
+
+    footer .controles {
+        display: flex; /* Para hacer que los botones se vean de forma horizontal */
+        align-items: center; /* Alinea los botones verticalmente en el centro */
+    }
+
+
+    .me-gusta {
+        margin-left: 10px;
+    }
+
+    footer .controles {
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-left: 5px
+    }
+
+    footer .barra-reproduccion {
+        width: 60%;
+        margin-left: 10px; /* Espacio entre los controles y la barra de reproducción */
+    }
+
+        footer .barra-reproduccion input[type="range"] {
+            width: 100%;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 3px; /* Cambia el grosor de la barra de reproducción */
+            background: #555; /* Cambia el color de fondo de la barra de reproducción */
+            outline: none;
+        }
+
+            footer .barra-reproduccion input[type="range"]::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 10px; /* Cambia el tamaño del control deslizante */
+                height: 10px; /* Cambia el tamaño del control deslizante */
+                background: #fff; /* Cambia el color del control deslizante */
+                border-radius: 50%;
+                cursor: pointer;
+            }
+
+    /* Estilos para los botones de control (atras, play, pausa, siguiente) */
+    footer .controles button#play img {
+        max-width: 20px; /* Ajusta el tamaño del ícono de reproducción */
+    }
+
+    .btn_play {
+        margin-left: 5px;
+    }
+
+    .btn_siguiente {
+        margin-left: 5px;
+    }
+
+    img {
+        width: 100px;
+        margin-right: 10px;
+        margin-left: 10px
+    }
+
+    button {
+        background: none; /* Elimina el fondo */
+        border: none; /* Elimina el borde */
+        cursor: pointer; /* Cambia el cursor a una mano para indicar que es un botón */
+    }
+
+    /*------------------------------------------------------------------------------------*/
+
+    /*--------------------------HomePage------------------------------------------------*/
+
+    .general__contenido__novedades {
+        margin-top: 0 auto;
+        width: 100%;
+        height: 230px;
+        float: right;
+    }
+
+    .general__contenido__novedades__cuadro {
+        background-color: rgb(0, 0, 0);
+        height: 50px;
+        width: 200px;
+        margin-left: 2%;
+        margin-top: 0%;
+        text-align: center;
+        padding-top: 10px;
+        border-radius: 20px;
+    }
+
+    .general__contenido__recomendaciones {
+        width: 100%;
+        float: right;
+    }
+
+    .general__contenido__recomendaciones__cuadro {
+        background-color: rgb(0, 0, 0);
+        height: 50px;
+        width: 350px;
+        margin-left: 2%;
+        margin-top: 1%;
+    }
+
+
+
+    .tarjeta {
+        display: inline-block;
+        background-color: #8B51B9;
+        border: 1px solid lightgray;
+        border-radius: 15px;
+        font-family: sans-serif;
+        margin-left: 2%;
+        width: 140px; /* La tarjeta no será más ancha que 300px */
+        height: 150px; /* La tarjeta no será más alta que 400px */
+        text-align: center;
+        align-items: center; /* Centra verticalmente */
+        justify-content: center; /* Centra horizontalmente */
+    }
+
+    .name-cancion-nov {
+        font-size: 15px;
+    }
+
+    .name-artist-nov {
+        font-size: 13px;
+    }
+
+    .name-album-nov {
+        font-size: 10px;
+    }
+
+    .caratula {
+        width: 100px;
+        height: 100px;
+        align-items: center;
+        text-align: center;
+        border-radius: 5%;
+    }
+
+    .imagenContainer {
+        width: 10%;
+        height: 10%;
+    }
+    /*------------------------------------------------------------------------------------*/
+    .menu__usuario {
+    }
+
+        .menu__usuario img {
+        }
+
+            .menu__usuario img:hover {
+            }
+    /*---------*/
+    .menu__inicio {
+    }
+
+        .menu__inicio img {
+        }
+
+            .menu__inicio img:hover {
+            }
+    /*--------*/
+    .menu__biblioteca {
+    }
+
+    .menu__biblioteca__letrero {
+    }
+
+        .menu__biblioteca__letrero img {
+        }
+
+
+    .biblioteca__album img {
+        width: 30%;
+        height: 50px;
+        margin-left: 2%;
+    }
+
+    .nombreA {
+        height: 10px;
+        padding: 5px;
+    }
+    /*--------------------------------*/
+
+
+
+    .general__bienvenida__bn {
+        font-size: 40px;
+    }
+
+
+
+    .form button {
+        border: none;
+        background: none;
+        color: #8b8ba7;
+    }
+    /* styling of whole input container */
+    .form {
+        --timing: 0.3s;
+        --width-of-input: 400px;
+        --height-of-input: 40px;
+        --border-height: 2px;
+        --input-bg: #fff;
+        --border-color: #2f2ee9;
+        --border-radius: 30px;
+        --after-border-radius: 1px;
+        position: relative;
+        width: var(--width-of-input);
+        height: var(--height-of-input);
+        display: flex;
+        align-items: center;
+        padding-inline: 0.8em;
+        border-radius: var(--border-radius);
+        transition: border-radius 0.5s ease;
+        background: var(--input-bg,#fff);
+        margin-left: 25%;
+    }
+    /* styling of Input */
+    .input {
+        font-size: 0.9rem;
+        background-color: transparent;
+        width: 100%;
+        height: 100%;
+        padding-inline: 0.5em;
+        padding-block: 0.7em;
+        border: none;
+        color: black;
+    }
+    /* styling of animated border */
+    .form:before {
+        content: "";
+        position: absolute;
+        background: var(--border-color);
+        transform: scaleX(0);
+        transform-origin: center;
+        width: 100%;
+        height: var(--border-height);
+        left: 0;
+        bottom: 0;
+        border-radius: 1px;
+        transition: transform var(--timing) ease;
+    }
+    /* Hover on Input */
+    .form:focus-within {
+        border-radius: var(--after-border-radius);
+    }
+
+
+    input:focus {
+        outline: none;
+    }
+    /* here is code of animated border */
+    .form:focus-within:before {
+        transform: scale(1);
+    }
+    /* styling of close button */
+    /* == you can click the close button to remove text == */
+    .reset {
+        border: none;
+        background: none;
+        opacity: 0;
+        visibility: hidden;
+    }
+    /* close button shown when typing */
+    input:not(:placeholder-shown) ~ .reset {
+        opacity: 1;
+        visibility: visible;
+    }
+    /* sizing svg icons */
+    .form svg {
+        width: 17px;
+        margin-top: 3px;
+    }
+
+    .general__contenido {
+        background-color: rgb(29, 28, 28);
+        margin-top: 5px;
+        height: 74.1vh;
+        width: 80vw;
+        display: inline-block;
+        border-color: rgb(0, 0, 0);
+    }
+
+
+    /*----------------------------------*/
+
+
+
+    @charset "utf-8";
+
+
+
+    .titulo {
+        font-size: 24px;
+        padding: 10px 10px 0 10px;
+    }
+
+    .cuerpo {
+        padding: 10px;
+    }
+
+    .pie {
+        background: #6699ff;
+        border-radius: 0 0 15px 15px;
+        padding: 10px;
+        text-align: center;
+    }
+
+        .pie a {
+            text-decoration: none;
+            color: white;
+        }
+
+            .pie a:after {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 1;
+            }
+
+    /*-------------------------------------------------------*/
+}

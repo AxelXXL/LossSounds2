@@ -2,6 +2,14 @@
 @{
     ViewBag.Title = "Index";
     Layout = null;
+    if (ViewBag.AlertMessage != null)
+    {
+    <script>alert('@ViewBag.AlertMessage');</script>
+    }
+    if (ViewBag.AlertDone != null)
+    {
+        <script>alert('@ViewBag.AlertDone');</script>
+    }
 }
 
 <!DOCTYPE html>
@@ -46,13 +54,13 @@
                         @Html.TextBoxFor(Model => Model.Nombre_Usuario, new { @placeholder = "Usuario" })
                     </label>
                     @*<label>
-                        <i class='bx bxl-gmail'></i>
-                        <input type="email" placeholder="Correo electronico">
-                    </label>*@
-            <label>
-                <i class='bx bx-lock-alt'></i>
-                @Html.PasswordFor(Model => Model.Contrasena, new { @placeholder = "Contraseña" })
-            </label>
+                            <i class='bx bxl-gmail'></i>
+                            <input type="email" placeholder="Correo electronico">
+                        </label>*@
+                    <label>
+                        <i class='bx bx-lock-alt'></i>
+                        @Html.PasswordFor(Model => Model.Contrasena, new { @placeholder = "Contraseña" })
+                    </label>
                     <input type="submit" value="Registrarse">
 
 

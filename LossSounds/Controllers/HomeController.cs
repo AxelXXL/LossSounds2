@@ -72,10 +72,25 @@ namespace LossSounds.Controllers
             //tb_Usuario us = new tb_Usuario();
             //us.Nombre_Usuario = user;
             //us.Contrasena = password;
-            db.tb_Usuario.Add(userr);
-            db.SaveChanges();
+            var validacion = db.tb_Usuario
+                    .Where(a => a.Nombre_Usuario == userr.Nombre_Usuario);
+           
+                db.tb_Usuario.Add(userr);
+                db.SaveChanges();
+                var idUser = db.tb_Usuario
+                        .Where(a => a.Nombre_Usuario == userr.Nombre_Usuario && a.Contrasena == userr.Contrasena)
+                        .Select(c => new
+                        {
+                            ID = c.ID_USUARIO
+                        })
+                        .FirstOrDefault();
+                Session["Name"] = userr.Nombre_Usuario.ToString();
+                Session["IdUser"] = idUser.ID;
 
-            return Content("Inicia sesion!");
+                return RedirectToAction("HomePage", "Home");
+             
+
+            
         }
 
         public ActionResult About()
@@ -107,7 +122,8 @@ namespace LossSounds.Controllers
                                            NombreCancion = c.Nombre_Cancion,
                                            NombreArtista = c.tb_Artista.Nombre_Artista,
                                            NombreAlbum = c.tb_Album.Nombre_album,
-                                           Caratula = c.Caratula_Cancion
+                                           Caratula = c.Caratula_Cancion,
+                                           Ruta_Auido = c.Ruta_Audio,
                                        })
                                            .ToList();
 
@@ -348,7 +364,8 @@ namespace LossSounds.Controllers
                                           NombreCancion = c.Nombre_Cancion,
                                           NombreArtista = c.tb_Artista.Nombre_Artista,
                                           NombreAlbum = c.tb_Album.Nombre_album,
-                                          Caratula = c.Caratula_Cancion
+                                          Caratula = c.Caratula_Cancion,
+                                          Ruta_Audio = c.Ruta_Audio
                                       })
                                           .ToList();
 

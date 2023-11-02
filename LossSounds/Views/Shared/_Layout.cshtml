@@ -44,7 +44,7 @@
                             </svg>
                         </button>
                         <input class="input" id="text-buscar" placeholder="Descubre nueva musica" required="" type="text">
-                        <select class="search-canciones" id="opciones-cancion">
+                        <select class="input" id="opciones-cancion">
                         </select>
                         <button class="reset" type="reset">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -111,6 +111,7 @@
                 </div>
                 <div class="barra-reproduccion">
                     <input type="range" id="barra-progreso" min="0" max="100">
+                   
                 </div>
                 <div class="me-gusta">
                     <button id="likes">Me Gusta</button>
@@ -130,7 +131,7 @@
 
         var isPlaying = false; // Variable para controlar si la canción está reproduciéndose
 
-        $("#play").hide();
+        $("#pause").hide();
 
         // Función para cambiar el botón entre "Pausa" y "Play"
         function togglePlayPause() {
@@ -178,36 +179,78 @@
 
         cargarCanciones();
 
-        function mostrarCancion(index) {
+        const sound = new Audio();
+
+
+        function playSound(index) {
+            if (sound.src) {
+                sound.pause();
+                sound.currentTime = 0; // Reinicia la canción actual si ya está cargada
+            }
             var data = canciones[index];
-            //console.log(data);
-            let TemplateIn = "<div class='info' style='width: 130px; flex-direction: column; top: 50%; left: 50 %;'>";
-            let TemplateFin = "</div>";
+
+
+            if (data.NombreCancion == "Walk") {
+                console.log("walk");
+                sound.src = "https://ia601709.us.archive.org/21/items/03-walk/03%20-%20Walk.flac";
+            } else if (data.NombreCancion == "Rich Flex") {
+                console.log("rich flex");
+                sound.src = "https://ia902704.us.archive.org/6/items/01-rich-flex/01%20-%20Rich%20Flex.flac";
+            } else if (data.NombreCancion == "All That Is Evil") {
+                sound.src = "https://ia600506.us.archive.org/30/items/05-all-that-is-evil/05%20-%20All%20That%20Is%20Evil.flac";
+            } else if (data.NombreCancion == "Bank Account") {
+                sound.src = "https://ia600506.us.archive.org/34/items/02-bank-account/02%20-%20Bank%20Account.flac";
+            } else if (data.NombreCancion == "Let It Be (Take 28)") {
+                sound.src = "https://ia601701.us.archive.org/35/items/13-let-it-be-take-28/13%20-%20Let%20It%20Be%20%28Take%2028%29.flac";
+            }
+
+            sound.play();
+        }
+
+        $("#pausa").click(function () {
+            sound.pause();
+        })
+
+        $("#play").click(function () {
+            sound.play();
+        })
+
+        function mostrarCancion(index) {
+            if (sound) {
+                sound.pause();
+            }
+
             var contenedor = document.getElementById("info");
+            contenedor.innerHTML = '';
 
-            var template = TemplateIn +
-                "<h5 class='nomCancion'>" + data.NombreCancion + "</h5>" +
-                "<h6 class='nomArtista'>" + data.NombreArtista + "</h6>" +
-                "<h6 class='nomAlbum'>" + data.NombreAlbum + "</h6>"
-                + TemplateFin;
-
-            contenedor.innerHTML = template;
+            var data = canciones[index];
 
             var imagenData = data.Caratula;
             var imagen = $("#imagen");
             var blob = new Blob([new Uint8Array(imagenData)], { type: "image/jpeg" });
             var imageUrl = URL.createObjectURL(blob);
             imagen.attr("src", imageUrl);
+
+            let template = "<div class='info' style='width: 130px; flex-direction: column; top: 50%; left: 50%;'>" +
+                "<h5 class='nomCancion'>" + data.NombreCancion + "</h5>" +
+                "<h6 class 'nomArtista'>" + data.NombreArtista + "</h6>" +
+                "<h6 class='nomAlbum'>" + data.NombreAlbum + "</h6>" +
+                "</div";
+
+            // Agregar el nuevo contenido al contenedor 'info'
+            contenedor.innerHTML = template;
         }
 
         $("#siguiente").click(function () {
             currentIndex = (currentIndex + 1) % canciones.length;
             mostrarCancion(currentIndex);
+            playSound(currentIndex);
         });
 
         $("#atras").click(function () {
             currentIndex = (currentIndex - 1 + canciones.length) % canciones.length;
             mostrarCancion(currentIndex);
+            playSound(currentIndex);
         });
     });
 

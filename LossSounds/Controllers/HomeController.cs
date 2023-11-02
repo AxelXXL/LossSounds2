@@ -107,7 +107,8 @@ namespace LossSounds.Controllers
                                            NombreCancion = c.Nombre_Cancion,
                                            NombreArtista = c.tb_Artista.Nombre_Artista,
                                            NombreAlbum = c.tb_Album.Nombre_album,
-                                           Caratula = c.Caratula_Cancion
+                                           Caratula = c.Caratula_Cancion,
+                                           Ruta_Auido = c.Ruta_Audio,
                                        })
                                            .ToList();
 
@@ -348,7 +349,8 @@ namespace LossSounds.Controllers
                                           NombreCancion = c.Nombre_Cancion,
                                           NombreArtista = c.tb_Artista.Nombre_Artista,
                                           NombreAlbum = c.tb_Album.Nombre_album,
-                                          Caratula = c.Caratula_Cancion
+                                          Caratula = c.Caratula_Cancion,
+                                          Ruta_Audio = c.Ruta_Audio
                                       })
                                           .ToList();
 

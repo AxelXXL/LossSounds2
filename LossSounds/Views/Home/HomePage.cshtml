@@ -33,7 +33,6 @@
                 dataType: 'json',
                 success: function (data) {
                 // "data" contendrá los datos en formato JSON
-                console.log(data);
                     AddNovedades(data);
            },
                 error: function () {
@@ -49,7 +48,6 @@
                 data: {idUser: usuario_id},
                 success: function (data) {
                 // "data" contendrá los datos en formato JSON
-                console.log(data);
                     AddRecomendaciones(data);
            },
                 error: function () {
@@ -65,7 +63,6 @@
             data: { id: usuario_id },
                 success: function (data) {
                 // "data" contendrá los datos en formato JSON
-                console.log(data);
                     ShowLikes(data);
            },
                 error: function () {

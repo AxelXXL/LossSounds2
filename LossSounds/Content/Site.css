@@ -171,7 +171,6 @@ button {
 /*--------------------------HomePage------------------------------------------------*/
 
 .general__contenido__novedades {
-    height: 350px;
     margin-top: 0 auto;
     width: 100%;
     height: 230px;
@@ -189,6 +188,21 @@ button {
     border-radius: 20px;
 }
 
+.general__contenido__recomendaciones {
+    width: 100%;
+    float: right;
+}
+
+.general__contenido__recomendaciones__cuadro {
+    background-color: rgb(0, 0, 0);
+    height: 50px;
+    width: 350px;
+    margin-left: 2%;
+    margin-top: 1%;
+}
+
+
+
 .tarjeta {
     display: inline-block;
     background-color: #8B51B9;
@@ -196,8 +210,8 @@ button {
     border-radius: 15px;
     font-family: sans-serif;
     margin-left: 2%;
-    max-width: 150px; /* La tarjeta no será más ancha que 300px */
-    max-height: 170px; /* La tarjeta no será más alta que 400px */
+    width: 140px; /* La tarjeta no será más ancha que 300px */
+    height: 150px; /* La tarjeta no será más alta que 400px */
     text-align: center;
     align-items: center; /* Centra verticalmente */
     justify-content: center; /* Centra horizontalmente */
@@ -220,7 +234,7 @@ button {
     height: 100px;
     align-items: center;
     text-align: center;
-    margin-left: 15px;
+    border-radius: 5%;
 }
 
 .imagenContainer{
@@ -370,19 +384,6 @@ input:not(:placeholder-shown) ~ .reset {
     display: inline-block;
     border-color: rgb(0, 0, 0);
 }
-
-
-.general__contenido__recomendaciones__cuadro {
-    background-color: rgb(0, 0, 0);
-    height: 50px;
-    width: 350px;
-    margin-left: 5%;
-    margin-top: 1%;
-    text-align: center;
-    padding-top: 10px;
-    border-radius: 20px;
-}
-
 
 
 /*----------------------------------*/

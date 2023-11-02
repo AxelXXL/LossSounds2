@@ -16,12 +16,9 @@
 
 <br />
 
-<div class="general__contenido__recomendaciones">
+<div class="general__contenido__recomendaciones" id="cont-recomendaciones">
     <div class="general__contenido__recomendaciones__cuadro">
         <h1 class="general__contenido__recomendaciones__cuadro__letrero">Recomendado para ti</h1>
-    </div>
-    <div class="tarjeta" id="cont-recomendaciones">
-
     </div>
 
 </div>
@@ -85,7 +82,7 @@
         data.forEach(function (item, i) {
             var tarjeta = document.createElement("div");
             tarjeta.classList.add("tarjeta");
-
+            
             tarjeta.innerHTML = "<h1 class='name-cancion-nov'>" + item.NombreCancion + "</h1>" +
                 "<p class 'name-artist-nov'>" + item.NombreArtista + "</p>" +
                 "<h1 class='name-album-nov'>" + item.NombreAlbum + "</h1>" +
@@ -111,48 +108,37 @@
     }
 
 
-
-
-
     function AddRecomendaciones(data) {
-        let TemplateIn = "<div id='cont-canciones-reco' class='cont-canciones-reco'>";
-        let TemplateFin = "</div>";
-        let TextIn = "<p>";
-        let TextFin = "</p>";
-        var Img = "datos_base64_de_la_imagen"; // Reemplaza esto con tus datos.
-        // Obtén el elemento en el que deseas insertar el HTML.
         var contenedor = document.getElementById("cont-recomendaciones");
 
-
         data.forEach(function (item, i) {
-            var template = TemplateIn + "<h1 class='name-cancion-reco'>" + item.NombreCancion + "</h1>" + "<p class='name-artist-reco'>" + item.NombreArtista
-                + "</h1>" + "<h1 class='name-album-reco'>" + item.NombreAlbum + "</h1>" + "<img id='caratula-reco" + i + "' width='100' height='130' alt='Caratula'/>" +
-                "<button class='likes' onclick='fnlike(this)' id='like-reco" + i + "'>Like</button>" +
-                "<button class='dislikes' onclick='fndislike(this)' id='dislike-reco" + i + "'>DisLike</button>" + TemplateFin;
+            var tarjeta = document.createElement("div");
+            tarjeta.classList.add("tarjeta");
 
-            contenedor.innerHTML += template;
-            let idCarat = "caratula-reco" + i;
-            //ConvertByteToImg(idCarat, item.Caratula);
+            tarjeta.innerHTML = "<h1 class='name-cancion-nov'>" + item.NombreCancion + "</h1>" +
+                "<p class='name-artist-nov'>" + item.NombreArtista + "</p>" +
+                "<h1 class='name-album-nov'>" + item.NombreAlbum + "</h1>" +
+                "<img class='caratula' width='100' height='130' alt='Caratula'/>";
 
-            var imagen = document.getElementById(idCarat);
-            console.log(item.Caratula);
-            // Convierte el array de bytes a una cadena
-            var binaryString = String.fromCharCode.apply(null, item.Caratula);
+            contenedor.appendChild(tarjeta);
 
-            // Convierte la cadena binaria a base64
-            var base64String = btoa(binaryString);
-            //imagen.src = "/Home/GetImagen?dataImg=" + item.Caratula;
-            imagen.src = "data:image/png;base64," + base64String;
-            //add atributo de id cancion al id de like y dislike
-            let plike = document.getElementById("like-reco" + i);
-            plike.setAttribute("cancion-reco-id", item.IdCancion);
-            let pdislike = document.getElementById("dislike-reco" + i);
-            pdislike.setAttribute("cancion-reco-id", item.IdCancion);
-            //$("#like").on("click", fnlike );
+            var imagenes = document.querySelectorAll(".caratula");
 
+            var imgBase64 = "data:image/jpeg;base64," + encodeBase64(item.Caratula);
 
+            function encodeBase64(array) {
+                var binary = '';
+                var len = array.length;
+                for (var i = 0; i < len; i++) {
+                    binary += String.fromCharCode(array[i]);
+                }
+                return btoa(binary);
+            }
+
+            imagenes[i].src = imgBase64;
         });
     }
+
 
     function ShowLikes(data) {
         console.log(data);
